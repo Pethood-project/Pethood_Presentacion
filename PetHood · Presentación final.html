@@ -659,33 +659,110 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:54px;line-height:1.05;col
 .slide.active .tm{animation:inUp .6s both;animation-delay:calc(var(--d) * 1ms)}
 .paws{position:absolute;inset:0;pointer-events:none;opacity:.08;color:var(--a700)}
 
-.sm-states{display:flex;align-items:center;gap:10px;margin-top:40px}
-.stt{background:var(--surface);border-radius:18px;padding:18px 22px;font-size:24px;font-weight:700;color:var(--n800);border:3px solid var(--n300)}
-.slide.active .stt{animation:lit .6s forwards;animation-delay:calc(var(--d) * 1ms)}
-@keyframes lit{to{border-color:var(--a500);background:var(--a100);color:var(--a800)}}
-.slide.active .stt.win{animation-name:litw}
-@keyframes litw{to{border-color:#2f8a5b;background:#e3f4ea;color:#1e7a4c}}
-.arr{font-size:30px;color:var(--a400)}
-.closes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
-.clo{background:var(--surface);border-radius:18px;padding:18px 20px}
-.clo h5{margin:0 0 6px;font-size:22px;color:#b03a2e}
-.clo p{margin:0;font-size:18px;color:var(--n700)}
-.secgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
-.secc{background:var(--surface);border-radius:20px;padding:22px}
-.secc .fi{width:52px;height:52px;border-radius:16px;background:var(--a800);color:var(--yel);display:grid;place-items:center;font-size:26.5px;margin-bottom:14px}
-.secc h4{margin:0 0 6px;font-size:23px}
-.secc p{margin:0;font-size:18px;color:var(--n700)}
-.meto{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:30px}
-.meto h5{font-family:'Caprasimo';font-weight:400;font-size:28.5px;color:var(--a700);margin:0 0 14px}
-.mrow{display:flex;gap:14px;background:var(--surface);border-radius:18px;padding:16px 18px;margin-bottom:12px;align-items:flex-start}
-.mrow .fi{width:44px;height:44px;border-radius:14px;background:var(--a200);color:var(--a600);display:grid;place-items:center;font-size:23px;flex:none}
-.mrow h6{font-size:20px;margin:2px 0 3px}
-.mrow p{margin:0;font-size:17px;color:var(--n700)}
-.deploy{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.dp{background:var(--surface);border-radius:18px;padding:16px 18px}
-.dp small{font-size:15.5px;color:var(--n600);font-weight:600}
-.dp b{display:block;font-size:24px;color:var(--a800);margin-top:3px}
-.annex{position:absolute;top:30px;right:40px;font-size:14.5px;font-weight:800;letter-spacing:.14em;color:var(--n500);background:var(--n200);padding:6px 12px;border-radius:999px}
+/* publicar: anatomía de la tarjeta (columna izquierda) */
+.anat{display:flex;gap:26px;align-items:flex-start;margin-top:0}
+.acol{flex:none;display:flex;flex-direction:column;gap:9px}
+.alabel{font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--n600)}
+.acard{width:224px;height:336px;border-radius:26px;overflow:hidden;position:relative;box-shadow:0 24px 40px -22px rgba(64,35,16,.6)}
+.acard .ph{position:absolute;inset:0}
+.acard .g{position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,22,9,0) 42%,rgba(43,22,9,.55) 64%,rgba(43,22,9,.92))}
+.acard .cnt{position:absolute;top:13px;right:13px;background:rgba(255,255,255,.9);border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700;color:var(--a800)}
+.acard .inf{position:absolute;left:16px;right:16px;bottom:16px;color:#fff}
+.acard .n{font-family:'Caprasimo';font-size:30px;line-height:1}
+.acard .m{font-size:13.5px;margin:6px 0 9px;opacity:.92}
+.acard .tags{display:flex;flex-wrap:wrap;gap:5px}
+.acard .tags span{border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:3px 8px;font-size:11.5px;background:rgba(255,255,255,.14)}
+.mk{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--yel);color:var(--a900);font-weight:800;font-size:14px;display:grid;place-items:center;box-shadow:0 0 0 3px rgba(255,255,255,.85),0 4px 10px rgba(0,0,0,.3)}
+.callouts{display:flex;flex-direction:column;gap:16px;flex:1;padding-top:34px}
+.co{display:flex;gap:12px;align-items:flex-start;transition:transform .3s,opacity .3s}
+.co .n{width:32px;height:32px;border-radius:50%;background:var(--yel);color:var(--a900);font-weight:800;font-size:15px;display:grid;place-items:center;flex:none;transition:all .3s}
+.co h4{margin:3px 0 3px;font-size:21px;color:var(--n900)}
+.co p{margin:0;font-size:16.5px;color:var(--n700);line-height:1.35}
+.syncwrap.live .co.sync{opacity:.45}
+.syncwrap.live .co.sync.on{opacity:1;transform:translateX(6px)}
+.syncwrap.live .co.sync.on .n{background:var(--a600);color:#fff}
+.aclar.sync{transition:opacity .3s,box-shadow .3s}
+.syncwrap.live .aclar.sync{opacity:.5}
+.syncwrap.live .aclar.sync.on{opacity:1;box-shadow:0 0 0 3px var(--a500)}
+
+/* publicar: piezas de la app */
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mcard{background:var(--surface);border-radius:16px;padding:5px 5px 6px;box-shadow:0 6px 14px -9px rgba(100,51,18,.35);transition:box-shadow .4s}
+.mcard.hl{box-shadow:0 0 0 3px var(--a400),0 6px 14px -9px rgba(100,51,18,.35)}
+.mcard .ph{height:116px;border-radius:12px;position:relative}
+.mbadge{position:absolute;top:5px;left:5px;font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:999px;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0}
+.mbadge.tr{background:#fffbeb;color:#b45309;border-color:#fde68a}
+.mbadge.ad{background:#f0f9ff;color:#0369a1;border-color:#bae6fd}
+.mcard .nm{display:flex;justify-content:space-between;align-items:baseline;gap:4px;margin:6px 3px 0}
+.mcard .nm b{font-family:'Caprasimo';font-weight:400;font-size:15px;color:var(--n900)}
+.mcard .nm em{font-style:normal;font-size:10px;font-weight:700;color:var(--a600);white-space:nowrap}
+.mcard .dchip{display:inline-flex;gap:3px;align-items:center;font-size:10px;padding:2px 7px;border-radius:999px;background:var(--n200);color:var(--n800);margin:4px 3px 0}
+.mcard .esp{font-size:10px;color:var(--n600);margin:4px 3px 0;display:flex;gap:3px;align-items:center;white-space:nowrap;overflow:hidden}
+.mcard .esp .ic{color:var(--a600)}
+.mcard .acts{display:flex;gap:4px;margin-top:6px}
+.mcard .acts span{flex:1;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:3px;font-size:9.5px;font-weight:700;color:var(--a700);transition:transform .12s,filter .12s}
+.mcard .acts .h{background:var(--yel2)}
+.mcard .acts .p{background:var(--a100)}
+.pick{height:92px;border-radius:20px;border:2px dashed var(--a300);background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--n600);font-size:12px;background-size:cover;background-position:center;position:relative;transition:all .3s}
+.pick .ic{font-size:22px;color:var(--a600)}
+.pick.has{border:none;height:118px;color:transparent}
+.pick.has .ic{color:transparent}
+.pick.has::after{content:"Cambiar";position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.5);color:#fff;font-size:10.5px;padding:4px 9px;border-radius:999px}
+.fcard{padding:0 12px;margin-top:10px}
+.fcols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fcard .fld div{font-size:12.5px}
+.tg{display:flex;justify-content:space-between;align-items:center;padding:9px 2px;border-bottom:1px solid var(--n200);font-size:12px;color:var(--n800)}
+.tgl{width:32px;height:19px;border-radius:10px;background:var(--n300);position:relative;transition:background .25s;flex:none}
+.tgl::after{content:"";position:absolute;left:2px;top:2px;width:15px;height:15px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .25s}
+.tgl.on{background:var(--a600)}
+.tgl.on::after{transform:translateX(13px)}
+.flbl{font-size:12.5px;font-weight:700;margin:14px 2px 7px;color:var(--n900)}
+.flbl em{color:var(--a500);font-style:normal}
+.meds{display:flex;flex-wrap:wrap;gap:6px}
+.med{display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:999px;border:1px solid var(--n300);background:#fff;color:var(--n500);font-size:11px;font-weight:600;white-space:nowrap;transition:all .25s}
+.med .ic{font-size:13px}
+.med.on{background:var(--f);border-color:var(--b);color:var(--t)}
+.med .ck{display:none}
+.med.on .ck{display:inline-block}
+.med.on .pl{display:none}
+.med.pop{animation:medPop .7s cubic-bezier(.2,1.5,.4,1)}
+@keyframes medPop{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15)}100%{transform:none;opacity:1}}
+.pfotos{display:flex;gap:7px}
+.pfotos .ph{width:56px;height:56px;border-radius:12px;position:relative;flex:none;animation:bIn .35s}
+.pfotos .ph.cover::after{content:"Portada";position:absolute;left:3px;right:3px;bottom:3px;background:rgba(0,0,0,.55);color:#fff;font-size:8.5px;font-weight:700;text-align:center;border-radius:6px;padding:1px 0}
+.padd{width:56px;height:56px;border-radius:12px;border:1.5px dashed var(--a300);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9.5px;color:var(--n600);flex:none;transition:transform .12s}
+.padd .ic{font-size:16px;color:var(--a600)}
+.tagin{background:var(--surface);border:1px solid var(--n300);border-radius:12px;padding:7px 9px;font-size:12px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;min-height:36px;color:var(--n900)}
+.tagin .ph0{color:var(--n500)}
+.rqm{display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:999px;background:var(--a100);border:1px solid var(--a300);color:var(--a800);font-size:11px;font-weight:600;animation:bIn .3s}
+.salud{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.cq{border-radius:12px;padding:8px 10px;border:1px solid var(--n300);background:var(--n200);color:var(--n600);font-size:11.5px;font-weight:600}
+.cq b{display:block;font-size:13px;margin-top:2px}
+.cq.on{background:#f1e4d3;border-color:#dcc1a0;color:var(--a800)}
+.carac{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.carac div{background:var(--surface);border-radius:10px;padding:6px 8px;font-size:10px;color:var(--n600)}
+.carac b{display:block;font-size:12px;color:var(--n900)}
+.bannerA{display:flex;align-items:center;gap:6px;background:#e3f4ea;border:1px solid #bfe3cd;color:#1e7a4c;border-radius:12px;padding:7px 10px;font-size:11.5px;font-weight:700;margin-top:8px}
+.hcr{display:flex;align-items:stretch;background:var(--surface);border-radius:18px;overflow:hidden;margin-bottom:10px;box-shadow:0 6px 14px -10px rgba(100,51,18,.4);transition:transform .12s,filter .12s}
+.hcr .hs2{width:46px;display:grid;place-items:center;font-size:20px;flex:none}
+.hcr .hb2{flex:1;padding:10px 10px 10px 12px;min-width:0}
+.hcr .hb2 b{display:block;font-size:13.5px}
+.hcr .hb2 small{display:block;font-size:11.5px;color:var(--n600);margin-top:2px}
+.hcr .ht{display:inline-flex;gap:4px;align-items:center;font-size:10.5px;font-weight:700;margin-top:5px}
+.hcr .hch{display:grid;place-items:center;padding-right:10px;color:var(--n400);font-size:16px}
+.hcr.pop{animation:bIn .6s cubic-bezier(.2,1.4,.4,1)}
+.hform{display:none}
+.hform.open{display:block;animation:bIn .35s}
+.vopt{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 2px;border-bottom:1px solid var(--n200);transition:background .2s}
+.vopt small{font-size:10.5px;color:var(--n600);text-align:right}
+.vopt.sel{background:var(--a100);border-radius:10px}
+.ta.auto{animation:autoFill 1.2s ease-out}
+@keyframes autoFill{0%{background:var(--yel2)}100%{background:var(--surface)}}
+.dato{padding:9px 0;border-bottom:1px solid var(--n200)}
+.dato:last-child{border:none}
+.dato small{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--n500)}
+.dato b{display:block;font-size:13px;margin-top:2px;line-height:1.4}
+
 
 /* ===== chrome ===== */
 #progress{position:fixed;left:0;bottom:0;height:4px;background:var(--a500);transition:width .4s;z-index:20}
@@ -699,7 +776,7 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:54px;line-height:1.05;col
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute"><symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol><symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol><symbol id="i-paw" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></symbol><symbol id="i-paws" viewBox="0 0 24 24"><circle cx="7" cy="5" r="1.6"/><circle cx="11.5" cy="4" r="1.6"/><circle cx="4" cy="9" r="1.6"/><path d="M6 10.5c2 0 3.5 1.6 3.5 3.3 0 1.4-1 2.2-2.3 2.2-.8 0-1.2-.3-1.6-.3s-.9.3-1.6.3C2.8 16 2 15.2 2 13.9c0-1.8 2-3.4 4-3.4z"/><circle cx="16" cy="12" r="1.5"/><circle cx="20" cy="11.5" r="1.5"/><circle cx="21.5" cy="15.5" r="1.5"/><path d="M17.5 16c1.7 0 3 1.3 3 2.8 0 1.2-.8 1.9-1.9 1.9-.6 0-1-.3-1.3-.3s-.8.3-1.3.3c-1.1 0-1.8-.7-1.8-1.8 0-1.6 1.6-2.9 3.3-2.9z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-checks" viewBox="0 0 24 24"><path d="M18 6 7 17l-5-5M22 10l-7.5 7.5L13 16"/></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol><symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3-3-9 9"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16V9M12 16V5M17 16v-4"/></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol><symbol id="i-clinic" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M12 11v6M9 14h6"/></symbol><symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol><symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol><symbol id="i-usercheck" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2M16 11l2 2 4-4"/></symbol><symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18M7 6h1v4M16.71 13.88l.7.71-2.82 2.82"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol><symbol id="i-smartphone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol><symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol><symbol id="i-git" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M6 9v6M18 9a9 9 0 0 1-9 9"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></symbol><symbol id="i-reply" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></symbol><symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol><symbol id="i-chevdown" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2"/><rect x="4" y="9" width="11" height="6" rx="1" fill="currentColor" stroke="none"/></symbol><symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol><symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute"><symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol><symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol><symbol id="i-paw" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></symbol><symbol id="i-paws" viewBox="0 0 24 24"><circle cx="7" cy="5" r="1.6"/><circle cx="11.5" cy="4" r="1.6"/><circle cx="4" cy="9" r="1.6"/><path d="M6 10.5c2 0 3.5 1.6 3.5 3.3 0 1.4-1 2.2-2.3 2.2-.8 0-1.2-.3-1.6-.3s-.9.3-1.6.3C2.8 16 2 15.2 2 13.9c0-1.8 2-3.4 4-3.4z"/><circle cx="16" cy="12" r="1.5"/><circle cx="20" cy="11.5" r="1.5"/><circle cx="21.5" cy="15.5" r="1.5"/><path d="M17.5 16c1.7 0 3 1.3 3 2.8 0 1.2-.8 1.9-1.9 1.9-.6 0-1-.3-1.3-.3s-.8.3-1.3.3c-1.1 0-1.8-.7-1.8-1.8 0-1.6 1.6-2.9 3.3-2.9z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-checks" viewBox="0 0 24 24"><path d="M18 6 7 17l-5-5M22 10l-7.5 7.5L13 16"/></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol><symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3-3-9 9"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16V9M12 16V5M17 16v-4"/></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol><symbol id="i-clinic" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M12 11v6M9 14h6"/></symbol><symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol><symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol><symbol id="i-usercheck" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2M16 11l2 2 4-4"/></symbol><symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18M7 6h1v4M16.71 13.88l.7.71-2.82 2.82"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol><symbol id="i-smartphone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol><symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol><symbol id="i-git" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M6 9v6M18 9a9 9 0 0 1-9 9"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></symbol><symbol id="i-reply" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></symbol><symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol><symbol id="i-chevdown" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2"/><rect x="4" y="9" width="11" height="6" rx="1" fill="currentColor" stroke="none"/></symbol><symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol><symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol><symbol id="i-needle" viewBox="0 0 24 24"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/></symbol><symbol id="i-mars" viewBox="0 0 24 24"><circle cx="10" cy="14" r="6"/><path d="M14.5 9.5 21 3M16 3h5v5"/></symbol><symbol id="i-venus" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M12 15v7M9 19h6"/></symbol></svg>
 <div id="stage">
 
 <!-- 1 PORTADA -->
@@ -753,11 +830,46 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:54px;line-height:1.05;col
   <div class="srcnote" data-in style="--d:900">Relevamiento propio de Miwuki Pet Shelter, redes sociales (caso Misión Animal) y A la Cucha.</div>
 </section>
 
-<!-- 4 ENCONTRAR -->
-<section class="slide" data-notes="Camila · 0:50|Esta es la historia de Rocco, un cachorro del Refugio Patitas, y de Ana, que quiere adoptar. El refugio publica a Rocco con fotos, personalidad y requisitos. Ana abre PetHood y entra a Adoptar: desliza a la derecha para guardar en favoritos y a la izquierda para pasar, y si quiere filtra por especie, tamaño, edad o distancia. Cuando toca a Rocco se abre la ficha: quién lo publica, a qué distancia está, su salud, sus vacunas y las reseñas del refugio. Lo que antes había que preguntar por mensaje ahora está en un solo lugar.">
+<!-- 4 PUBLICAR + HISTORIA CLÍNICA -->
+<section class="slide" data-notes="Camila · 0:55|Esta es la historia de Rocco, un cachorro del Refugio Patitas, y de Ana, que quiere adoptar. Todo empieza cuando el refugio carga a Rocco: una foto, sus datos, las vacunas que ya tiene y su estado. Desde ahí mismo pasa a publicarlo, con fotos, una descripción para el swipe, su personalidad, requisitos y ubicación. Lo importante es cómo queda. A la izquierda ven la tarjeta que le va a aparecer a Ana: la primera foto es la portada, la edad se calcula sola desde la fecha de nacimiento y se muestran los primeros tres rasgos. Al tocarla se abre la ficha, con la salud y las vacunas como medallas de color. Esas vacunas no son un texto suelto: viven en la historia clínica de Rocco. En el otro teléfono, el refugio la abre, ve las vacunas que cargó en el alta y registra un refuerzo: se elige del plan de vacunación del perro, la descripción se completa sola y, al guardarla, la medalla aparece en la publicación. También se pueden registrar visitas u operaciones con un comprobante, que queda privado.">
+  <div class="split">
+    <div class="left syncwrap" data-sync="publicar">
+      <div class="kicker" data-in>La historia de Rocco · 1</div>
+      <h2 class="t" data-in style="--d:80">El refugio carga a Rocco y lo publica</h2>
+      <div class="journey" data-in style="--d:160"><div class="jstep done cur"><div class="jd"><svg class="ic"><use href="#i-megaphone"/></svg></div>Publicar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-search"/></svg></div>Encontrar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-clipboard"/></svg></div>Solicitar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-chat"/></svg></div>Conversar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-eye"/></svg></div>Revisar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-check"/></svg></div>Aprobar</div></div>
+      <div class="anat">
+        <div class="acol" data-in style="--d:260">
+          <div class="alabel">Así lo ve Ana en Adoptar</div>
+          <div class="acard">
+            <div class="ph" data-img="rocco_tall"></div><div class="g"></div>
+            <span class="cnt">1 de 3</span>
+            <div class="inf"><div class="n">Rocco</div><div class="m">7 meses · Mediano · Macho</div><div class="tags"><span>Juguetón</span><span>Activo</span><span>Bueno con chicos</span></div></div>
+            <span class="mk" style="left:12px;top:12px">1</span>
+            <span class="mk" style="right:12px;top:118px">2</span>
+            <span class="mk" style="right:12px;bottom:58px">3</span>
+          </div>
+        </div>
+        <div class="callouts">
+          <div class="co sync" data-in style="--d:320"><span class="n">1</span><div><h4>Portada y fotos</h4><p>La primera foto es la portada; con más de una, aparece el contador.</p></div></div>
+          <div class="co sync" data-in style="--d:400"><span class="n">2</span><div><h4>Edad, tamaño y sexo</h4><p>Salen de los datos de la mascota: la edad se calcula sola.</p></div></div>
+          <div class="co sync" data-in style="--d:480"><span class="n">3</span><div><h4>Personalidad</h4><p>Se ven los primeros tres rasgos que eligió el refugio.</p></div></div>
+          <div class="co sync" data-in style="--d:560"><span class="n"><svg class="ic"><use href="#i-file"/></svg></span><div><h4>La ficha completa</h4><p>Características, salud, vacunas y requisitos.</p></div></div>
+        </div>
+      </div>
+      <div class="aclar sync" data-in style="--d:650;margin-top:22px"><svg class="ic"><use href="#i-clinic"/></svg>Las vacunas cargadas en el alta pasan a su historia clínica y se muestran como medallas en la ficha.</div>
+    </div>
+    <div class="right">
+      <div class="phone-wrap" style="--d:200"><div class="phone"><div class="screen" data-demo="publicar" data-s="A"></div></div><div class="cap"><b>1</b>Cargar y publicar a Rocco</div></div>
+      <div class="phone-wrap" style="--d:400"><div class="phone"><div class="screen" data-demo="publicar" data-s="B"></div></div><div class="cap"><b>2</b>Su historia clínica</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 ENCONTRAR -->
+<section class="slide" data-notes="Camila · 0:50|Ya publicado, entra Ana, que quiere adoptar. Abre PetHood y entra a Adoptar: desliza a la derecha para guardar en favoritos y a la izquierda para pasar, y si quiere filtra por especie, tamaño, edad o distancia. Cuando toca a Rocco se abre la ficha: quién lo publica, a qué distancia está, su salud, sus vacunas y las reseñas del refugio. Lo que antes había que preguntar por mensaje ahora está en un solo lugar.">
   <div class="split">
     <div class="left syncwrap" data-sync="encontrar">
-      <div class="kicker" data-in>La historia de Rocco · 1</div>
+      <div class="kicker" data-in>La historia de Rocco · 2</div>
       <h2 class="t" data-in style="--d:80">El refugio publica y Ana encuentra a Rocco</h2>
       <div class="journey" data-in style="--d:160"><div class="jstep done"><div class="jd"><svg class="ic"><use href="#i-megaphone"/></svg></div>Publicar</div><div class="jstep done cur"><div class="jd"><svg class="ic"><use href="#i-search"/></svg></div>Encontrar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-clipboard"/></svg></div>Solicitar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-chat"/></svg></div>Conversar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-eye"/></svg></div>Revisar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-check"/></svg></div>Aprobar</div></div>
       <div class="feats">
@@ -777,7 +889,7 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:54px;line-height:1.05;col
 <section class="slide" data-notes="Camila · 0:50|Ana toca Solicitar adopción. Antes de abrir el formulario, la app controla que su cuenta esté verificada con DNI y selfie, y que no tenga más de cinco solicitudes abiertas. Son cinco pasos: elige adoptar o dar tránsito, confirma los datos de su hogar, escribe un saludo, responde las preguntas que definió el refugio y confirma. Lo mejor pasa al final: la app la lleva directo al chat, su saludo ya es el primer mensaje y aparece una tarjeta con la solicitud. El refugio no recibe un 'hola, ¿sigue disponible?': recibe una solicitud completa y una conversación abierta.">
   <div class="split">
     <div class="left syncwrap" data-sync="solicitar">
-      <div class="kicker" data-in>La historia de Rocco · 2</div>
+      <div class="kicker" data-in>La historia de Rocco · 3</div>
       <h2 class="t" data-in style="--d:80">Solicitar es un proceso, no un mensaje</h2>
       <div class="journey" data-in style="--d:160"><div class="jstep done"><div class="jd"><svg class="ic"><use href="#i-megaphone"/></svg></div>Publicar</div><div class="jstep done"><div class="jd"><svg class="ic"><use href="#i-search"/></svg></div>Encontrar</div><div class="jstep done"><div class="jd"><svg class="ic"><use href="#i-clipboard"/></svg></div>Solicitar</div><div class="jstep done cur"><div class="jd"><svg class="ic"><use href="#i-chat"/></svg></div>Conversar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-eye"/></svg></div>Revisar</div><div class="jstep "><div class="jd"><svg class="ic"><use href="#i-check"/></svg></div>Aprobar</div></div>
       <div class="steps5" data-in style="--d:250" data-steps="solicitar"><div><b>1</b>Tipo</div><div><b>2</b>Hogar</div><div><b>3</b>Saludo</div><div><b>4</b>Preguntas</div><div><b>5</b>Confirmación</div></div>
@@ -798,7 +910,7 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:54px;line-height:1.05;col
 <section class="slide" data-notes="Camila · 0:50|Del otro lado, el refugio abre la solicitud y pasa sola a En revisión. Ve lo que pidió para Rocco junto a lo que respondió Ana: hogar, convivencia, horas sola y sus respuestas. Puede dejar una nota interna, marcarla como revisada y decidir. Cada paso queda registrado, y Ana lo sigue en una línea de estados. Al aprobar pasan varias cosas solas: Rocco figura como adoptado, la publicación se cierra, las demás solicitudes se cierran y Ana ve esta pantalla. Y en el chat aparece esta tarjeta. Pero la adopción no termina acá, y para eso le paso a Ignacio.">
   <div class="split">
     <div class="left syncwrap" data-sync="aprobar">
-      <div class="kicker" data-in>La historia de Rocco · 3</div>
+      <div class="kicker" data-in>La historia de Rocco · 4</div>
       <h2 class="t" data-in style="--d:80">El refugio decide y Rocco encuentra familia</h2>
       <div class="journey" data-in style="--d:160"><div class="jstep done"><div class="jd"><svg class="ic"><use href="#i-megaphone"/></svg></div>Publicar</div><div class="jstep done"><div class="jd"><svg class="ic"><use href="#i-search"/></svg></div>Encontrar</div><div class="jstep done"><div class="jd"><svg class="ic"><use href="#i-clipboard"/></svg></div>Solicitar</div><div class="jstep done"><div class="jd"><svg class="ic"><use href="#i-chat"/></svg></div>Conversar</div><div class="jstep done"><div class="jd"><svg class="ic"><use href="#i-eye"/></svg></div>Revisar</div><div class="jstep done cur"><div class="jd"><svg class="ic"><use href="#i-check"/></svg></div>Aprobar</div></div>
       <div class="feats">
@@ -923,13 +1035,13 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:54px;line-height:1.05;col
 </section>
 
 <!-- 12 OTROS MÓDULOS -->
-<section class="slide" data-notes="Nicolás · 0:15|No llegamos a mostrar todo. También están la historia clínica con vacunas, las reseñas y la reputación, la verificación de identidad, las notificaciones, los favoritos, los perfiles públicos y el soporte.">
+<section class="slide" data-notes="Nicolás · 0:15|No llegamos a mostrar todo. También están las preguntas que cada refugio arma para sus solicitudes, las reseñas y la reputación, la verificación de identidad, las notificaciones, los favoritos, los perfiles públicos y el soporte.">
   <div class="split">
     <div class="left syncwrap" data-sync="otros" style="width:820px">
       <div class="kicker" data-in>Y hay más</div>
       <h2 class="t" data-in style="--d:80">Y otros módulos que completan la app</h2>
       <div class="mgrid" style="grid-template-columns:1fr 1fr;margin-top:24px">
-        <div class="mc sync" data-in style="--d:150"><div class="fi"><svg class="ic"><use href="#i-clinic"/></svg></div><div><h4>Historia clínica</h4><p>Vacunas y registros médicos de cada mascota.</p></div></div>
+        <div class="mc sync" data-in style="--d:150"><div class="fi"><svg class="ic"><use href="#i-clipboard"/></svg></div><div><h4>Preguntas de adopción</h4><p>Cada refugio arma las suyas para sus solicitudes.</p></div></div>
         <div class="mc sync" data-in style="--d:200"><div class="fi"><svg class="ic"><use href="#i-star"/></svg></div><div><h4>Reputación</h4><p>Reseñas entre las partes de una adopción.</p></div></div>
         <div class="mc sync" data-in style="--d:250"><div class="fi"><svg class="ic"><use href="#i-shield"/></svg></div><div><h4>Verificación</h4><p>Identidad validada con DNI y selfie.</p></div></div>
         <div class="mc sync" data-in style="--d:300"><div class="fi"><svg class="ic"><use href="#i-flag"/></svg></div><div><h4>Moderación</h4><p>Reportes de usuarios, avisos y reseñas.</p></div></div>
@@ -940,7 +1052,7 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:54px;line-height:1.05;col
       </div>
     </div>
     <div class="right">
-      <div class="phone-wrap" style="--d:300"><div class="phone"><div class="screen" data-demo="otros" data-s="A"></div></div><div class="cap">Notificaciones, historia clínica y perfiles</div></div>
+      <div class="phone-wrap" style="--d:300"><div class="phone"><div class="screen" data-demo="otros" data-s="A"></div></div><div class="cap">Notificaciones, reseñas y perfiles</div></div>
     </div>
   </div>
 </section>
@@ -998,7 +1110,7 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:54px;line-height:1.05;col
 </section>
 
 <!-- 15 PREGUNTAS -->
-<section class="slide" data-notes="Todos · 2:00|Tiempo de preguntas. Responde quien trabajó el módulo. Las diapositivas de anexo que siguen sirven de respaldo.">
+<section class="slide" data-notes="Todos · 2:00|Tiempo de preguntas. Responde quien trabajó el módulo.">
   <div class="qa-wrap">
     <h1 data-in>¿Preguntas?</h1>
     <p data-in style="--d:120">Gracias por acompañarnos</p>
@@ -1012,65 +1124,6 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:54px;line-height:1.05;col
   </div>
 </section>
 
-<!-- 16 ANEXO ESTADOS -->
-<section class="slide vc" data-notes="Anexo|Respaldo para preguntas. La aprobación solo es posible desde Revisada, y cada cambio de estado queda en un histórico con usuario y fecha.">
-  <span class="annex">ANEXO</span>
-  <div class="kicker" data-in>Solicitudes</div>
-  <h2 class="t" data-in style="--d:80">Estados de una solicitud</h2>
-  <div class="sm-states">
-    <div class="stt" style="--d:300">Pendiente</div><span class="arr"><svg class="ic"><use href="#i-chevron"/></svg></span>
-    <div class="stt" style="--d:800">En revisión</div><span class="arr"><svg class="ic"><use href="#i-chevron"/></svg></span>
-    <div class="stt" style="--d:1300">Revisada</div><span class="arr"><svg class="ic"><use href="#i-chevron"/></svg></span>
-    <div class="stt win" style="--d:1800">Aprobada</div>
-  </div>
-  <p class="lead" data-in style="--d:400;margin-top:40px">Otros cierres posibles mientras la solicitud está abierta</p>
-  <div class="closes">
-    <div class="clo" data-in style="--d:500"><h5>Rechazada</h5><p>La decide el refugio, con motivo.</p></div>
-    <div class="clo" data-in style="--d:600"><h5>Cancelada</h5><p>La retira quien solicitó.</p></div>
-    <div class="clo" data-in style="--d:700"><h5>Cerrada</h5><p>Por una circunstancia: mascota adoptada, publicación retirada o vencimiento.</p></div>
-  </div>
-  <div class="aclar" data-in style="--d:900;margin-top:30px"><svg class="ic"><use href="#i-info"/></svg>Solo se puede aprobar una solicitud Revisada, y cada cambio queda registrado con usuario y fecha.</div>
-</section>
-
-<!-- 17 ANEXO SEGURIDAD -->
-<section class="slide vc" data-notes="Anexo|Respaldo para preguntas. Todo verificado en el código del backend.">
-  <span class="annex">ANEXO</span>
-  <div class="kicker" data-in>Seguridad</div>
-  <h2 class="t" data-in style="--d:80">Seguridad</h2>
-  <div class="secgrid">
-    <div class="secc" data-in style="--d:200"><div class="fi"><svg class="ic"><use href="#i-key"/></svg></div><h4>Sesión y roles</h4><p>JWT y control de acceso por rol en la API.</p></div>
-    <div class="secc" data-in style="--d:280"><div class="fi"><svg class="ic"><use href="#i-lock"/></svg></div><h4>Contraseñas</h4><p>Guardadas con hash bcrypt.</p></div>
-    <div class="secc" data-in style="--d:360"><div class="fi"><svg class="ic"><use href="#i-wallet"/></svg></div><h4>Mercado Pago</h4><p>Vinculación OAuth con tokens cifrados AES-256-GCM.</p></div>
-    <div class="secc" data-in style="--d:440"><div class="fi"><svg class="ic"><use href="#i-clock"/></svg></div><h4>Límite de pedidos</h4><p>Rate limiting en autenticación y formularios públicos.</p></div>
-    <div class="secc" data-in style="--d:520"><div class="fi"><svg class="ic"><use href="#i-file"/></svg></div><h4>Archivos privados</h4><p>Adjuntos de chat e historia clínica con URL firmada.</p></div>
-    <div class="secc" data-in style="--d:600"><div class="fi"><svg class="ic"><use href="#i-list"/></svg></div><h4>Auditoría</h4><p>Usuario y fecha de alta, modificación y baja.</p></div>
-  </div>
-</section>
-
-<!-- 18 ANEXO METODOLOGÍA -->
-<section class="slide vc" data-notes="Anexo|Respaldo para preguntas. Commits sin merges de los dos repos en dev, hasta el 28/10/2026.">
-  <span class="annex">ANEXO</span>
-  <div class="kicker" data-in>Proceso</div>
-  <h2 class="t" data-in style="--d:80">Metodología y despliegue</h2>
-  <div class="meto">
-    <div>
-      <h5 data-in style="--d:150">Cómo trabajamos</h5>
-      <div class="mrow" data-in style="--d:200"><div class="fi"><svg class="ic"><use href="#i-calendar"/></svg></div><div><h6>Scrum con sprints de 14 días</h6><p>Tablero Kanban en Trello y comunicación por Discord.</p></div></div>
-      <div class="mrow" data-in style="--d:280"><div class="fi"><svg class="ic"><use href="#i-git"/></svg></div><div><h6>Ramas por funcionalidad</h6><p>Pull requests a dev y CI en los dos repositorios.</p></div></div>
-      <div class="mrow" data-in style="--d:360"><div class="fi"><svg class="ic"><use href="#i-file"/></svg></div><div><h6>Una especificación por módulo</h6><p>Historias de usuario, reglas y criterios de aceptación.</p></div></div>
-    </div>
-    <div>
-      <h5 data-in style="--d:150">Dónde corre</h5>
-      <div class="deploy">
-        <div class="dp" data-in style="--d:250"><small>API</small><b>Render</b></div>
-        <div class="dp" data-in style="--d:320"><small>Base de datos</small><b>Neon (PostgreSQL)</b></div>
-        <div class="dp" data-in style="--d:390"><small>Colas</small><b>Upstash (Redis)</b></div>
-        <div class="dp" data-in style="--d:460"><small>Panel web</small><b>Vercel</b></div>
-        <div class="dp" data-in style="--d:530;grid-column:span 2"><small>App Android</small><b>APK con GitHub Actions</b></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 </div>
 <div id="progress"></div>
@@ -1095,7 +1148,7 @@ function makeCtx(name, slide) {
     waitFor(n) { const e = get(n); return e.fired ? Promise.resolve() : new Promise(r => e.res.push(r)); },
     feat(i) {
       groupEls().forEach(g => {
-        g.classList.toggle('live', i >= 0);
+        g.classList.toggle('live', Array.isArray(i) ? i.length > 0 : i >= 0);
         g.querySelectorAll('.sync,.role').forEach((el, j) => el.classList.toggle('on', j === i || (Array.isArray(i) && i.includes(j))));
       });
     },
@@ -1414,6 +1467,237 @@ DEMOS.encontrar = {
       await a.wait(1500); await a.scroll(a.q('[data-v=favs] .inner'), 170, 1600); await a.wait(1800);
       await a.scroll(a.q('[data-v=favs] .inner'), 0, 1400); await a.wait(1200);
       await a.tap('fBruno'); await a.toast('Abriendo la ficha de Bruno…', 1400, 'paw');
+    },
+  },
+};
+
+/* ================= Demo: publicar + historia clínica (slide 4) =================
+   Basado en la app: mascotas/crear.tsx, publicaciones/crear.tsx, (tabs)/mis-mascotas.tsx,
+   publicaciones/[id], mascotas/[id]/historia-clinica/*. Nombres y colores de vacunas: seed
+   del backend (catalogos.ts) y PALETA.vacuna (constants/theme.js). */
+const VAC = {
+  primo: ['Primovacunación', '#ffe1d0', '#ffc6a5', '#8c491a', '6 a 8 semanas'],
+  mult: ['Vacuna Múltiple', '#fbe6af', '#f3cc6a', '#7a5a10', '9 a 12 semanas'],
+  ref: ['Refuerzo Múltiple', '#f6d6cc', '#e6a894', '#9c3f28', '14 a 16 semanas'],
+  rab: ['Antirrábica', '#e3f0dc', '#b9d8a8', '#3d7a34', 'Desde los 3 a 4 meses'],
+};
+const med = (v, o = {}) => { const [n, f, b, t] = VAC[v]; return `<span class="med ${o.off ? '' : 'on'} ${o.cls || ''}" ${o.k ? `data-k="${o.k}"` : ''} style="--f:${f};--b:${b};--t:${t}">${icn('needle')}${n}${o.sel ? `<span class="pl">${icn('plus')}</span><span class="ck">${icn('check')}</span>` : ''}</span>`; };
+const fechaVac = (v, f) => `<div class="card fcard" style="animation:bIn .35s"><div class="fld" style="border:none"><small>FECHA DE ${VAC[v][0].toUpperCase()} <em>*</em></small><div class="has">${f} ${icn('calendar')}</div></div></div>`;
+const petCard = (img, n, edad, sexo, tam, raza, est = ['Disponible', ''], k = '') => `<div class="mcard" ${k ? `data-k="${k}"` : ''}><div class="ph" ${bg(img)}><span class="mbadge ${est[1]}">${est[0]}</span></div><div class="nm"><b>${n}</b><em>${edad}</em></div><span class="dchip">${icn(sexo === 'Macho' ? 'mars' : 'venus')}${sexo} · ${tam}</span><div class="esp">${icn('paw')}${raza}</div><div class="acts"><span class="h" ${k ? `data-k="${k}H"` : ''}>${icn('clinic')}Historia</span><span class="p" ${k ? `data-k="${k}P"` : ''}>${icn('megaphone')}Publicación</span></div></div>`;
+const roccoCard = k => petCard('rocco', 'Rocco', '7 meses', 'Macho', 'Mediano', 'Perro · Mestizo', ['Disponible', ''], k);
+const hcRec = (v, fecha, k = '', cls = '') => { const [n, f, , t] = VAC[v]; return `<div class="hcr ${cls}" ${k ? `data-k="${k}"` : ''}><div class="hs2" style="background:${f};color:${t}">${icn('needle')}</div><div class="hb2"><b>${n}</b><small>Fecha visita: ${fecha}</small><span class="ht" style="color:${t}">${icn('shield')}Vacuna</span></div><span class="hch">${icn('chevron')}</span></div>`; };
+const RASGOS = ['Juguetón', 'Cariñoso', 'Tranquilo', 'Activo', 'Protector', 'Sociable', 'Independiente', 'Bueno con chicos', 'Bueno con otras mascotas'];
+const RASGO_K = { 'Juguetón': 'rJug', 'Activo': 'rAct', 'Bueno con chicos': 'rBcc' };
+
+const vMascotas = k => `
+<div class="view start" data-v="masc">${ST()}
+ ${HD('Mascotas', { back: false, sub: `<span data-k="${k}Cnt">12 mascotas</span> · Refugio Patitas`, right: `<div class="rbtn plain">${icn('sliders')}</div>` })}
+ <div class="body"><div class="inner"><div class="mg" data-k="${k}G">
+  ${petCard('husky', 'Nieve', '3 años', 'Hembra', 'Grande', 'Perro · Husky')}
+  ${petCard('beagle', 'Bruno', '2 años', 'Macho', 'Mediano', 'Perro · Beagle')}
+  ${petCard('toby', 'Toby', '4 años', 'Macho', 'Mediano', 'Perro · Mestizo', ['En tránsito', 'tr'])}
+  ${petCard('mia', 'Mia', '2 años', 'Hembra', 'Pequeño', 'Gato · Común europeo', ['Adoptado', 'ad'])}
+ </div></div></div>
+ <div class="fab" data-k="${k}Fab">${icn('plus')}</div>${TAB('Mascotas')}
+</div>`;
+
+const vAlta = () => `
+<div class="view" data-v="alta">${ST()}${HD('Nueva Mascota', { line: true })}
+ <div class="body"><div class="inner" style="padding-top:10px">
+  <div class="pick" data-k="aFoto">${icn('camera')}<span>Agregar fotos</span></div>
+  <div class="card fcard">
+   <div class="fld"><small>NOMBRE <em>*</em></small><div data-k="aNom">Nombre de la mascota</div></div>
+   <div class="fcols"><div class="fld"><small>ESPECIE <em>*</em></small><div data-k="aEsp">Elegí ${icn('chevdown')}</div></div><div class="fld"><small>SEXO <em>*</em></small><div data-k="aSex">Elegí ${icn('chevdown')}</div></div></div>
+   <div class="fcols"><div class="fld"><small>RAZA <em>*</em></small><div data-k="aRaza">Elegí ${icn('chevdown')}</div></div><div class="fld"><small>NACIMIENTO <em>*</em></small><div data-k="aNac">Elegí la fecha</div></div></div>
+   <div class="fcols"><div class="fld"><small>TAMAÑO <em>*</em></small><div data-k="aTam">Elegí ${icn('chevdown')}</div></div><div class="fld"><small>PESO (KG) <em>*</em></small><div data-k="aPeso">Ej. 12,5</div></div></div>
+   <div class="tg">Castrado / Esterilizado<i class="tgl"></i></div>
+   <div class="tg" style="border:none">Desparasitado<i class="tgl" data-k="aDesp"></i></div>
+  </div>
+  <div class="flbl">Vacunas</div>
+  <div class="meds">${med('primo', { off: true, sel: true, k: 'aV1' })}${med('mult', { off: true, sel: true, k: 'aV2' })}${med('ref', { off: true, sel: true })}${med('rab', { off: true, sel: true })}</div>
+  <div data-k="aVF"></div>
+  <div class="flbl">Estado <em>*</em></div>
+  <div class="chips"><span class="chip" data-k="aDisp">Disponible</span><span class="chip">En tratamiento</span><span class="chip">En tránsito</span></div>
+ </div></div>
+ <div class="btns"><div class="btn ghost" style="flex:1">Crear mascota</div><div class="btn" style="flex:1.2" data-k="aPub">Crear publicación</div></div>
+</div>`;
+
+const vPubli = () => `
+<div class="view" data-v="publi">${ST()}${HD('Poner en adopción', { line: true })}
+ <div class="body"><div class="inner" style="padding-top:2px">
+  <div class="card fcard"><div class="fld" style="border:none"><small>SELECCIONAR MASCOTA <em>*</em></small><div class="has">Rocco (Perro · Disponible) ${icn('chevdown')}</div></div></div>
+  <div class="flbl">Fotos <span class="muted" style="font-weight:500">· hasta 5</span></div>
+  <div class="pfotos"><div class="padd" data-k="pAdd">${icn('plus')}Agregar</div></div>
+  <div class="flbl">Descripción para el swipe <em>*</em></div>
+  <div class="ta ph0" data-k="pDesc" style="min-height:52px">Contá qué lo hace especial</div>
+  <div class="flbl">Personalidad</div>
+  <div class="chips">${RASGOS.map(r => `<span class="chip" ${RASGO_K[r] ? `data-k="${RASGO_K[r]}"` : ''}>${r}</span>`).join('')}</div>
+  <div class="flbl">Requisitos de adoptante</div>
+  <div class="tagin" data-k="pReq"><span class="ph0" data-k="pReqT">Ej. Casa con patio</span></div>
+  <div class="flbl">Ubicación <em>*</em></div>
+  <div class="card fcard" style="margin-top:0"><div class="fld" style="border:none"><div data-k="pUbi">Ej. Palermo, CABA</div></div></div>
+ </div></div>
+ <div class="btns"><div class="btn" style="flex:1" data-k="pPub">Publicar en adopción</div></div>
+</div>`;
+
+const vFichaPub = () => `
+<div class="view" data-v="fpub">
+ <div class="fphoto ph" ${bg('rocco')}>${ST(true)}<span class="cb" style="left:14px">${icn('back')}</span></div>
+ <div class="fsheet"><div class="body"><div class="inner" style="padding-top:0">
+  <div class="fname" style="padding:16px 2px 2px"><h3>Rocco</h3><span class="pill green" style="font-size:12px;padding:5px 11px">Disponible</span></div>
+  <div class="muted" style="font-size:12px;margin:0 2px 6px">7 meses · Mediano · Macho</div>
+  <div class="pub"><div class="bi">${icn('building')}</div><div style="flex:1"><small>PUBLICADO POR</small><b>Refugio Patitas</b><span>${icn('pin')} Godoy Cruz, Mendoza · hoy</span></div></div>
+  <div class="bannerA">${icn('check')}<div><small style="display:block;font-size:9.5px;letter-spacing:.08em;font-weight:700;opacity:.8">ESTADO DE LA PUBLICACIÓN</small>Activa</div></div>
+  <div class="sh"><i>${icn('star')}</i>Personalidad</div>
+  <div class="chips"><span class="chip on">Juguetón</span><span class="chip on">Activo</span><span class="chip on">Bueno con chicos</span></div>
+  <div class="sh"><i>${icn('paw')}</i>Características</div>
+  <div class="carac"><div>Especie<b>Perro</b></div><div>Raza<b>Mestizo</b></div><div>Edad<b>7 meses</b></div><div>Tamaño<b>Mediano</b></div><div>Peso<b>9,2 kg</b></div><div>Sexo<b>Macho</b></div></div>
+  <div class="sh"><i>${icn('clinic')}</i>Salud</div>
+  <div class="salud"><div class="cq">Castrado<b>No</b></div><div class="cq on">Desparasitado<b>Sí</b></div></div>
+  <div class="flbl" style="margin:10px 2px 6px">Vacunas</div>
+  <div class="meds" data-k="fMeds">${med('primo')}${med('mult')}</div>
+  <div class="sh"><i>${icn('chat')}</i>Sobre Rocco</div>
+  <div class="rv">Cachorro curioso: ama correr y jugar con la pelota.</div>
+  <div class="sh"><i>${icn('home')}</i>Requisitos para adoptar</div>
+  <div class="chips"><span class="rqm">Casa con patio</span></div>
+ </div></div></div>
+</div>`;
+
+const vHC = () => `
+<div class="view" data-v="hc">${ST()}${HD('Historia Clínica', { sub: 'Rocco · Perro', line: true })}
+ <div class="body"><div class="inner" style="padding-top:12px" data-k="hcL">
+  ${hcRec('mult', '10/09/2026')}${hcRec('primo', '20/05/2026')}
+ </div></div>
+ <div class="fab" data-k="hcFab" style="bottom:22px">${icn('plus')}</div>
+</div>`;
+
+const vHNew = () => `
+<div class="view" data-v="hnew">${ST()}${HD('Nuevo registro', { sub: 'Ficha médica', line: true })}
+ <div class="body"><div class="inner" style="padding-top:12px">
+  <div class="flbl" style="margin-top:0">¿Qué vas a registrar? <em>*</em></div>
+  <div class="seg brown"><div data-k="hVac">Vacuna</div><div data-k="hOtro">Otro registro</div></div>
+  <div class="hform" data-k="hfOtro">
+   <div class="card fcard">
+    <div class="fld"><small>TÍTULO DEL REGISTRO <em>*</em></small><div>Ej. Vacunación anual</div></div>
+    <div class="fcols"><div class="fld"><small>FECHA VISITA <em>*</em></small><div>Elegí la fecha</div></div><div class="fld"><small>FECHA PRÓXIMA</small><div>Opcional</div></div></div>
+    <div class="tg" style="border:none">Requiere revisión<i class="tgl"></i></div>
+   </div>
+   <div class="flbl">Descripción</div>
+   <div class="ta ph0" style="min-height:52px">Detalles de la visita veterinaria...</div>
+   <div class="padd" style="width:auto;height:42px;flex-direction:row;gap:6px;font-size:11.5px;margin-top:10px">${icn('file')}Adjuntar comprobante</div>
+  </div>
+  <div class="hform" data-k="hfVac">
+   <div class="card fcard">
+    <div class="fld"><small>VACUNA <em>*</em></small><div data-k="hSel">Elegí la vacuna ${icn('chevdown')}</div></div>
+    <div class="fld" style="border:none"><small>FECHA DE APLICACIÓN <em>*</em></small><div data-k="hFec">Elegí la fecha ${icn('calendar')}</div></div>
+   </div>
+   <div class="flbl">Descripción</div>
+   <div class="ta ph0" data-k="hDesc" style="min-height:64px">Elegí la vacuna y se completa sola</div>
+  </div>
+ </div></div>
+ <div class="btns"><div class="btn" style="flex:1" data-k="hSave">Guardar registro</div></div>
+</div>
+<div class="backdrop" data-k="bdH"></div>
+<div class="sheet" data-k="shH"><div class="grab"></div>
+ <div class="tt" style="font-size:16px;color:var(--a800);margin-bottom:4px">Vacunas del perro</div>
+ ${['primo', 'mult', 'ref', 'rab'].map(v => `<div class="vopt" ${v === 'ref' ? 'data-k="hOptRef"' : ''}>${med(v)}<small>${VAC[v][4]}</small></div>`).join('')}
+</div>`;
+
+const vHDet = () => `
+<div class="view" data-v="hdet">${ST()}${HD('Refuerzo Múltiple', { sub: 'Registro #58', line: true })}
+ <div class="body"><div class="inner" style="padding-top:12px">
+  <div class="card" style="padding:4px 14px">
+   <div class="dato" style="padding-top:12px">${med('ref')}</div>
+   <div class="dato"><small>FECHA VISITA</small><b>05/11/2026</b></div>
+   <div class="dato"><small>DESCRIPCIÓN</small><b style="font-weight:500">14 a 16 semanas: Refuerzo de la vacuna Múltiple/Óctuple.</b></div>
+  </div>
+  <div class="note">${icn('lock')}<span>La gestiona solo quien es responsable de Rocco. Los comprobantes se abren con un enlace que vence.</span></div>
+ </div></div>
+ <div class="btns"><div class="btn ghost" style="flex:1">Eliminar</div><div class="btn" style="flex:1">Modificar</div></div>
+</div>`;
+
+DEMOS.publicar = {
+  pause: 2200,
+  screens: {
+    A: () => vMascotas('a') + vAlta() + vPubli() + vFichaPub(),
+    B: () => vMascotas('b') + vHC() + vHNew() + vHDet(),
+  },
+  run: {
+    async A(a, c) {
+      const sel = async (k, v) => { await a.tap(k, { press: false, after: 110 }); a.set(k, v); a.cls(k, 'has'); };
+      await a.wait(1300);
+      // 1 · Alta de la mascota (rápido)
+      await a.tap('aFab'); await a.show('alta');
+      await a.tap('aFoto', { after: 120 }); const pick = a.K('aFoto'); pick.classList.add('has'); pick.style.backgroundImage = `url(${IMG.rocco})`; await a.wait(250);
+      await a.tap('aNom', { press: false, after: 80 }); await a.type('aNom', 'Rocco', { speed: 60 });
+      await sel('aEsp', `Perro ${icn('chevdown')}`);
+      c.feat(1);
+      await sel('aSex', `Macho ${icn('chevdown')}`);
+      await sel('aRaza', `Mestizo ${icn('chevdown')}`);
+      await sel('aNac', `02/04/2026 ${icn('calendar')}`);
+      await sel('aTam', `Mediano ${icn('chevdown')}`);
+      await sel('aPeso', '9,2');
+      await a.scroll('alta', 200, 700);
+      await a.tap('aDesp', { press: false, after: 110 }); a.cls('aDesp', 'on');
+      c.feat(4);
+      await a.tap('aV1', { after: 100 }); a.cls('aV1', 'on'); a.add('aVF', fechaVac('primo', '20/05/2026'));
+      await a.tap('aV2', { after: 100 }); a.cls('aV2', 'on'); a.add('aVF', fechaVac('mult', '10/09/2026'));
+      await a.scroll('alta', 290, 700);
+      await a.tap('aDisp', { press: false, after: 110 }); a.cls('aDisp', 'on');
+      await a.tap('aPub'); c.emit('creada');
+      a.toast('¡Listo! Rocco ya está en tus mascotas.', 1500).catch(() => {});
+      await a.show('publi');
+      // 2 · Publicación
+      c.feat(0);
+      const fotos = [['rocco', 'center', 'cover'], ['rocco_tall', '50% 25%', ''], ['rocco', '15% 40%;background-size:180%', '']];
+      for (const [img, pos, cls] of fotos) { await a.tap('pAdd', { after: 90 }); a.K('pAdd').insertAdjacentHTML('beforebegin', `<div class="ph ${cls}" style="background-image:url(${IMG[img]});background-position:${pos}"></div>`); }
+      await a.tap('pDesc', { press: false, after: 80 }); await a.type('pDesc', 'Cachorro curioso: ama correr y jugar con la pelota.', { speed: 16 });
+      await a.scroll('publi', 150, 700);
+      c.feat(2);
+      for (const k of ['rJug', 'rAct', 'rBcc']) { await a.tap(k, { press: false, after: 90 }); a.cls(k, 'on'); }
+      c.feat(3);
+      await a.tap('pReq', { press: false, after: 80 }); await a.type('pReqT', 'Casa con patio', { speed: 36 });
+      a.set('pReq', `<span class="rqm">Casa con patio ${icn('x')}</span><span class="ph0">Agregar otro</span>`);
+      await a.tap('pUbi', { press: false, after: 80 }); await a.type('pUbi', 'Godoy Cruz, Mendoza', { speed: 28 });
+      await a.tap('pPub');
+      a.toast('¡Listo! Tu publicación ya está activa.', 1600).catch(() => {});
+      // 3 · Cómo quedan las tarjetas
+      const card = a.prepend('aG', roccoCard('aRo')); card.style.animation = 'bIn .6s cubic-bezier(.2,1.4,.4,1)'; a.set('aCnt', '13 mascotas');
+      await a.show('masc', 'back'); a.hide();
+      c.feat([0, 1]); card.classList.add('hl'); await a.wait(2200);
+      await a.tap('aRoP'); card.classList.remove('hl'); await a.show('fpub', 'up'); a.hide();
+      c.feat(3); await a.wait(1500);
+      await a.scroll('fpub', 170, 1300); await a.wait(1500);
+      await a.scroll('fpub', 300, 1100);
+      c.emit('enFicha');
+      await c.waitFor('vac'); await a.wait(350);
+      c.feat([3, 4]); a.add('fMeds', med('ref', { cls: 'pop' }));
+      await a.wait(2800);
+      await a.scroll('fpub', 400, 1200); await a.wait(2000);
+      c.emit('finA');
+    },
+    async B(a, c) {
+      await c.waitFor('creada'); await a.wait(500);
+      const card = a.prepend('bG', roccoCard('bRo')); card.style.animation = 'bIn .6s cubic-bezier(.2,1.4,.4,1)'; a.set('bCnt', '13 mascotas');
+      await a.wait(1500);
+      await a.tap('bRoH'); await a.show('hc'); a.hide(); await a.wait(2000);
+      await a.tap('hcFab'); await a.show('hnew', 'up');
+      await a.tap('hOtro', { press: false }); a.cls('hOtro', 'on'); a.open('hfOtro'); await a.wait(2000);
+      await a.tap('hVac', { press: false }); a.cls('hOtro', 'on', false); a.cls('hVac', 'on'); a.close('hfOtro'); a.open('hfVac'); a.set('hSave', 'Guardar vacuna'); await a.wait(400);
+      await a.tap('hSel', { press: false }); a.open('bdH'); a.open('shH'); await a.wait(800);
+      await a.tap('hOptRef', { press: false }); a.cls('hOptRef', 'sel'); await a.wait(250); a.close('bdH'); a.close('shH');
+      a.set('hSel', `Refuerzo Múltiple ${icn('chevdown')}`); a.cls('hSel', 'has');
+      const d = a.K('hDesc'); d.textContent = VAC.ref[4] + ': Refuerzo de la vacuna Múltiple/Óctuple.'; d.classList.remove('ph0'); d.classList.add('auto');
+      await a.wait(1000);
+      await a.tap('hFec', { press: false }); a.set('hFec', `05/11/2026 ${icn('calendar')}`); a.cls('hFec', 'has');
+      await c.waitFor('enFicha'); await a.wait(400);
+      await a.tap('hSave'); c.emit('vac');
+      a.prepend('hcL', hcRec('ref', '05/11/2026', 'hR3', 'pop'));
+      await a.show('hc', 'back');
+      a.toast('¡Listo! Registramos la vacuna Refuerzo Múltiple.', 1700).catch(() => {});
+      await a.wait(1900);
+      await a.tap('hR3'); await a.show('hdet'); a.hide();
+      await c.waitFor('finA');
     },
   },
 };
@@ -2017,16 +2301,6 @@ DEMOS.otros = {
     <div class="view start" data-v="nots">${ST()}${HD('Notificaciones', { sub: 'Centro de notificaciones' })}
      <div class="body"><div class="inner" data-k="nl"></div></div>${TAB('')}
     </div>
-    <div class="view" data-v="hc">${ST()}${HD('Historia clínica', { sub: 'Rocco · Perro · 7 meses', bk: 'bkHC' })}
-     <div class="body"><div class="inner">
-      <div class="sec" style="margin-top:2px">Vacunas</div>
-      <div class="vac"><span class="ok">${icn('check')}</span><div>Séxtuple<br><small class="muted">Dra. Gómez · Vet. San Martín</small></div><span class="muted" style="margin-left:auto">10/09/2026</span></div>
-      <div class="vac"><span class="ok">${icn('check')}</span><div>Antiparasitario<br><small class="muted">Refugio Patitas</small></div><span class="muted" style="margin-left:auto">02/10/2026</span></div>
-      <div class="vac" style="box-shadow:inset 3px 0 0 var(--yel)"><span class="ok" style="background:var(--yel2);color:#a8750f">${icn('clock')}</span><div>Antirrábica<br><small class="muted">Próxima dosis</small></div><span class="pill yellow" style="margin-left:auto">12/11/2026</span></div>
-      <div class="sec">Registros médicos</div>
-      <div class="vac">${icn('file')}<div>Control general<br><small class="muted">Peso 9,2 kg · todo en orden</small></div><span class="muted" style="margin-left:auto">15/10</span></div>
-      <div class="vac">${icn('file')}<div>Certificado de vacunación.pdf<br><small class="muted">Adjunto privado</small></div></div>
-     </div></div></div>
     <div class="view" data-v="perfil">${ST()}${HD('Perfil público', { bk: 'bkP' })}
      <div class="body"><div class="inner" data-k="pIn">
       <div class="prof"><div class="ph" ${bg('refugio')}></div><h4>Refugio Patitas</h4><div class="ver">${icn('shield')} Refugio verificado</div>
@@ -2041,21 +2315,19 @@ DEMOS.otros = {
   run: {
     async A(a, c) {
       c.feat(4); await a.wait(600);
-      await a.push('Vacuna próxima', 'A Rocco le toca la antirrábica el 12/11', 'rocco', 1800);
+      await a.push('Nueva solicitud de adopción', 'Ana Castro quiere adoptar a Rocco', 'rocco', 1800);
       const list = [
-        notif('clinic', ['#fbe6af', '#a8750f'], 'Vacuna próxima', 'A Rocco le toca la antirrábica el 12/11.', 'Ahora', 'nVac'),
+        notif('clipboard', ['#fbe6af', '#a8750f'], 'Nueva solicitud de adopción', 'Ana Castro quiere adoptar a Rocco.', 'Ahora'),
         notif('star', ['#ffe1d0', '#b2622d'], 'Nueva reseña', 'Refugio Patitas te dejó 5 estrellas.', '1 h', 'nRes'),
         notif('shield', ['#e3f4ea', '#1e7a4c'], 'Identidad verificada', 'Validamos tu DNI y selfie. Ya podés solicitar.', '2 d', '', false),
         notif('flag', ['#eee7db', '#645c50'], 'Reporte resuelto', 'Moderación revisó el aviso que reportaste.', '3 d', '', false),
         notif('heart', ['#ffe1d0', '#b2622d'], 'Favorito disponible', 'Luna sigue esperando familia.', '4 d', '', false),
       ];
       for (const n of list.reverse()) { a.prepend('nl', n); await a.wait(260); }
-      await a.wait(1200);
-      c.feat(0); await a.tap('nVac'); await a.show('hc'); a.hide(); await a.wait(3000);
-      await a.tap('bkHC'); await a.show('nots', 'back'); a.hide();
+      await a.wait(2200);
       c.feat([1, 6, 2]); await a.tap('nRes'); await a.show('perfil'); a.hide(); await a.wait(1500);
       await a.scroll('perfil', 150, 1200); await a.wait(2600);
-      c.feat([7, 3, 5]); await a.wait(1800);
+      c.feat([0, 7, 3, 5]); await a.wait(1800);
     },
   },
 };
@@ -2066,6 +2338,8 @@ DEMOS.otros = {
   const slides = [...document.querySelectorAll('.slide')];
   const notes = document.getElementById('notes');
   let idx = 0;
+  // Fotos de las piezas estáticas de las diapositivas (las imágenes viven en IMG).
+  document.querySelectorAll('[data-img]').forEach(el => { el.style.backgroundImage = `url(${IMG[el.dataset.img]})`; });
 
   slides.forEach((s, i) => {
     if (i > 0) {
