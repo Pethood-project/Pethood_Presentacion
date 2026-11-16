@@ -1062,6 +1062,7 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:58px;line-height:1.05;col
 #notes{position:fixed;left:50%;bottom:16px;transform:translate(-50%,140%);width:min(1100px,92vw);background:rgba(28,24,20,.94);color:#f3e7d8;border-radius:18px;padding:16px 22px;font-size:17px;line-height:1.5;z-index:30;transition:transform .35s;max-height:42vh;overflow:auto}
 #notes.open{transform:translate(-50%,0)}
 #notes .who{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--yel);text-transform:uppercase;margin-bottom:6px}
+#notes .tx{white-space:pre-line}
 #help{position:fixed;left:50%;top:12px;transform:translateX(-50%);font-size:13px;color:#fff;background:rgba(28,24,20,.75);padding:6px 14px;border-radius:999px;z-index:20;transition:opacity 1s;pointer-events:none}#help.hide{opacity:0}
 </style>
 </head>
@@ -1193,7 +1194,10 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:58px;line-height:1.05;col
 </section>
 
 <!-- 8 APROBAR -->
-<section class="slide story" data-notes="Agustín · 1:10|Ahora vamos a verlo desde el lado de la vista del refugio. Vemos que se muestra en el chat la solicitud generada por el adoptante, en este caso por Ana. Al abrirla, pasa sola a «En revisión» y el refugio puede revisar todos los datos de la solicitud: lo que respondió Ana junto a lo que se pidió para Rocco, y dejar una nota interna. Después la marca como «Revisada». En caso de que el refugio considere que cumple con los requisitos, acepta la solicitud y, de lo contrario, la puede rechazar. Consideramos que cumple con los mismos y acepta la solicitud, entonces Rocco pasa a figurar como Adoptado y se cierran su publicación y las demás solicitudes. Y a Ana le llega una notificación de que su adopción fue aceptada, con los próximos pasos para coordinar a través del chat e ir a buscar a Rocco.">
+<section class="slide story" data-notes="Agustín · 1:15|Buenas tardes, mi nombre es Agustín y voy a mostrar cómo se aprueba la solicitud de adopción por parte del refugio. Como vemos, se muestra en el chat la solicitud de Rocco generada por el adoptante, en este caso por Ana.
+Al abrirla, pasa sola a estado «En revisión» y el refugio puede revisar todos los datos de la solicitud, lo que respondió Ana junto con lo que se pidió para Rocco. Además, permite dejar una nota interna que solo puede ser leída por los mismos integrantes del refugio.
+Luego de la lectura de los datos, el refugio marca la solicitud como «Revisada». En este punto se puede aceptar o rechazar la solicitud. En este caso consideramos que la solicitud cumple con los requisitos para la adopción de Rocco y se acepta. Entonces Rocco pasa a figurar como Adoptado y se cierran su publicación y las demás solicitudes.
+A Ana le llega una notificación de que su adopción fue aceptada y puede coordinar los próximos pasos a través del chat para ir a buscar a Rocco y completar su adopción.">
   <div class="flow" data-flow="4" data-in></div>
   <div class="split">
     <div class="left">
@@ -1214,7 +1218,13 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:58px;line-height:1.05;col
 </section>
 
 <!-- 9 SEGUIR -->
-<section class="slide story" data-notes="Agustín · 1:20|Como mencionamos al inicio, la idea de la aplicación es que no solo llegamos hasta la adopción, sino que luego se pueda hacer un seguimiento para que el refugio se asegure de que la mascota se encuentra en buenas condiciones. Para ello, al aprobarse la adopción arranca una secuencia de pedidos de seguimiento: el primero a los 2 días y después se van espaciando. Entonces, transcurrida esa cantidad de días, le llega una notificación a Ana para que realice su seguimiento, en el cual tiene 48 horas para subir una foto sacada en el momento, sin poder elegirla de la galería, y dejar un mensaje. El refugio recibe una notificación y puede revisar la respuesta para asegurarse de que Rocco se encuentra en buen estado. Por último, también puede ver si algún adoptante no está cumpliendo con el seguimiento: si vence el plazo, el sistema le avisa y puede comunicarse con esa persona o tomar alguna medida. Así termina el flujo de Rocco. Ahora le paso la palabra a mi compañero.">
+<section class="slide story" data-notes="Agustín · 1:15|Como mencionamos al inicio, la idea de PetHood es que la adopción no termine solamente con la entrega de la mascota, sino que luego se pueda hacer un seguimiento post adopción.
+Como vemos acá, el adoptante recibe una notificación para completar el seguimiento, el cual consta de una serie de preguntas espaciadas en el tiempo. La primera pregunta del seguimiento es a los dos días y cada una de estas tiene un plazo de 48 hs para ser respondida.
+Luego vemos cómo Ana completa la primera pregunta del seguimiento tomando una foto de Rocco, que no puede ser subida desde la galería, junto con el mensaje de su respuesta.
+El refugio recibe una notificación y puede revisar la respuesta para asegurarse de que Rocco se encuentra en buen estado.
+Por último, también puede suceder que no se cumpla con el seguimiento, como sucede con Mia. Si vence el plazo, el sistema le avisa al refugio para que pueda comunicarse con el adoptante o tomar alguna medida.
+Así se concluyen las principales funcionalidades del proceso de adopción de Rocco.
+Así que le cedo la palabra a mi compañero.">
   <div class="flow" data-flow="5" data-in></div>
   <div class="split">
     <div class="left">
