@@ -1572,7 +1572,7 @@ function makeApi(screen, token, isWeb) {
       await wait(150);
       el.style.visibility = 'hidden';
     },
-    async show(name, mode = 'push') {
+    async show(name, mode = 'push', o = {}) {
       const next = q(`[data-v="${name}"]`); const c = cur;
       if (!next || next === c) return;
       act(700);
@@ -1586,7 +1586,15 @@ function makeApi(screen, token, isWeb) {
       next.style.transform = 'none'; next.style.opacity = 1; c.style.transform = to;
       if (mode === 'fade') c.style.opacity = 0;
       await wait(650);
-      c.style.visibility = 'hidden'; c.style.transform = ''; c.style.opacity = ''; cur = next;
+      c.style.visibility = 'hidden'; cur = next;
+      if (!o.settle) { c.style.transform = ''; c.style.opacity = ''; return; }
+      // settle: la vista que sale queda fuera de cuadro un rato antes de volver a su lugar. Los hijos
+      // con `transition:all` (chips…) siguen visibles unos ms mientras transiciona su visibility, y si
+      // la vista volvía deslizándose a 0 aparecían como fantasmas sobre la pantalla nueva.
+      token.timers.push(setTimeout(() => {
+        if (c.style.visibility !== 'hidden') return;
+        c.style.transition = 'none'; c.style.transform = ''; c.style.opacity = '';
+      }, 600));
     },
     async scroll(name, y, ms = 1150) {
       const el = typeof name === 'string' ? q(`[data-v="${name}"] .inner`) : name;
@@ -1664,6 +1672,12 @@ const Engine = {
     this.stop(slide);
     const names = [...new Set([...slide.querySelectorAll('[data-demo]')].map(s => s.dataset.demo))];
     const tokens = [];
+    // `dim` en la demo: ese teléfono arranca oscurecido desde el principio (ej. dim: 'B').
+    const dimInicial = () => names.forEach(n => {
+      const s = DEMOS[n] && DEMOS[n].dim && slide.querySelector(`[data-demo="${n}"][data-s="${DEMOS[n].dim}"]`);
+      if (s) s.closest('.phone-wrap').classList.add('dim');
+    });
+    dimInicial();
     names.forEach(name => {
       const d = DEMOS[name]; if (!d) return;
       const token = { alive: true, timers: [] }; tokens.push(token);
@@ -1674,6 +1688,7 @@ const Engine = {
         while (token.alive) {
           screens.forEach(s => { this.build(s); s._until = 0; });
           slide.querySelectorAll('.phone-wrap.dim').forEach(w => w.classList.remove('dim'));
+          dimInicial();
           const ctx = makeCtx(name, slide);
           ctx.feat(-1); ctx.step(-1); ctx.flowDone(false);
           const apis = {}; screens.forEach(s => apis[s.dataset.s] = makeApi(s, token, s.classList.contains('web')));
@@ -1860,7 +1875,7 @@ DEMOS.encontrar = {
       await a.reveal('ficha', 'fxSalud', 1300); await a.wait(2400);
       await a.reveal('ficha', 'fxRev', 1300); await a.wait(2200);
       // Vuelve al mazo y ahí sí lo guarda.
-      await a.tap('fBack'); await a.show('adoptar', 'back'); await a.wait(900);
+      await a.tap('fBack'); await a.show('adoptar', 'back', { settle: true }); await a.wait(900);
       c.step(3); await a.swipe('c3', 1); await a.toast('Rocco guardado', 1200, 'heart');
       // Las que guardó aparecen primero en Favoritos.
       a.prepend('favgrid', favCard('beagle', 'Bruno', '2 años', 'Macho', 'Mediano', 'Refugio Patitas', '', { anim: true }));
@@ -2009,6 +2024,7 @@ const vHNew = () => `
 DEMOS.publicar = {
   delay: 5000, // tiempo para la intro antes de que arranque el video
   pause: 2200,
+  dim: 'B', // la historia clínica arranca borrosa hasta que le toca
   screens: {
     A: () => vMascotas('a') + vAlta() + vPubli() + vFichaPub(),
     B: () => vMascotas('b') + vHC() + vHNew(),
@@ -2018,7 +2034,7 @@ DEMOS.publicar = {
     async A(a, c) {
       const F = { press: false, after: 110, fast: true };
       const sel = async (k, v) => { await a.tap(k, F); a.set(k, v); a.cls(k, 'has'); };
-      await a.wait(1300);
+      await a.wait(2300);
       c.step(0);
       // El alta sube y al crear baja: deslizarlo de costado mostraba un instante las vacunas
       // del formulario pegadas a Mis mascotas.
@@ -2032,21 +2048,24 @@ DEMOS.publicar = {
       await sel('aNac', `02/04/2026 ${icn('calendar')}`);
       await sel('aTam', `Mediano ${icn('chevdown')}`);
       await sel('aPeso', '9,2');
+      // Pausa antes de Desparasitado: scrollea, se queda un segundo y ahí lo marca.
+      await a.hold(1000);
       await a.scroll('alta', 200, 600);
+      await a.hold(1000);
       await a.tap('aDesp', F); a.cls('aDesp', 'on');
       // 2 · Vacunas en el alta
       c.step(1);
       await a.tap('aV1', { after: 100, fast: true }); a.cls('aV1', 'on'); a.add('aVF', fechaVac('primo', '20/05/2026'));
       await a.tap('aV2', { after: 100, fast: true }); a.cls('aV2', 'on'); a.add('aVF', fechaVac('mult', '10/09/2026'));
       await a.wait(700);
-      await a.scroll('alta', 290, 600);
+      await a.scroll('alta', 'end', 600); // hasta el final, para que se vea Estado entero
       await a.tap('aDisp', F); a.cls('aDisp', 'on');
       a.hide(); await a.hold(2000); // con todo cargado, una pausa antes de crear
       await a.tap('aCrear');
       a.toast('¡Listo! Rocco ya está en tus mascotas.', 1500).catch(() => {});
       // 3 · Rocco en Mis mascotas
       const card = a.prepend('aG', roccoCard('aRo')); card.style.animation = 'bIn .6s cubic-bezier(.2,1.4,.4,1)'; a.set('aCnt', '13 mascotas');
-      await a.show('masc', 'down'); a.hide();
+      await a.show('masc', 'down', { settle: true }); a.hide();
       c.step(2); card.classList.add('hl'); await a.wait(2600);
       c.emit('creada');
       // Este teléfono se pausa mientras el otro registra la historia clínica.
@@ -2082,25 +2101,25 @@ DEMOS.publicar = {
       await c.waitFor('creada'); await a.wait(300);
       const card = a.prepend('bG', roccoCard('bRo')); card.style.animation = 'bIn .6s cubic-bezier(.2,1.4,.4,1)'; a.set('bCnt', '13 mascotas');
       // El arranque va más lento para que se pueda seguir.
-      await a.wait(2000);
+      await a.wait(1300);
       c.step(3);
-      await a.tap('bRoH'); await a.show('hc'); a.hide(); await a.wait(3800);
-      await a.tap('hcFab'); await a.show('hnew', 'up'); await a.wait(1200);
-      await a.tap('hOtro', { press: false }); a.cls('hOtro', 'on'); a.open('hfOtro'); await a.wait(2600);
-      await a.tap('hVac', { press: false }); a.cls('hOtro', 'on', false); a.cls('hVac', 'on'); a.close('hfOtro'); a.open('hfVac'); a.set('hSave', 'Guardar vacuna'); await a.wait(1400);
-      await a.tap('hSel', { press: false }); a.open('bdH'); a.open('shH'); await a.wait(2400);
-      await a.tap('hOptRef', { press: false }); a.cls('hOptRef', 'sel'); await a.wait(700); a.close('bdH'); a.close('shH');
+      await a.tap('bRoH'); await a.show('hc'); a.hide(); await a.wait(2400);
+      // Entra a crear un registro y va directo a Vacuna.
+      await a.tap('hcFab'); await a.show('hnew', 'up'); await a.wait(800);
+      await a.tap('hVac', { press: false }); a.cls('hVac', 'on'); a.open('hfVac'); a.set('hSave', 'Guardar vacuna'); await a.wait(1000);
+      await a.tap('hSel', { press: false }); a.open('bdH'); a.open('shH'); await a.wait(1600);
+      await a.tap('hOptRef', { press: false }); a.cls('hOptRef', 'sel'); await a.wait(500); a.close('bdH'); a.close('shH');
       a.set('hSel', `Refuerzo Múltiple ${icn('chevdown')}`); a.cls('hSel', 'has');
       const d = a.K('hDesc'); d.textContent = VAC.ref[4] + ': Refuerzo de la vacuna Múltiple/Óctuple.'; d.classList.remove('ph0'); d.classList.add('auto');
-      await a.wait(2200);
+      await a.wait(1500);
       await a.tap('hFec', { press: false, fast: true }); a.set('hFec', `05/11/2026 ${icn('calendar')}`); a.cls('hFec', 'has');
-      a.hide(); await a.hold(2000); // con todo cargado, una pausa antes de guardar
+      a.hide(); await a.hold(1400); // con todo cargado, una pausa antes de guardar
       await a.tap('hSave');
       a.prepend('hcL', hcRec('ref', '05/11/2026', 'hR3', 'pop'));
-      await a.show('hc', 'back'); a.hide();
+      await a.show('hc', 'back', { settle: true }); a.hide();
       a.toast('¡Listo! Registramos la vacuna Refuerzo Múltiple.', 1700).catch(() => {});
       // Se queda en la lista con el refuerzo arriba (ya no entra a leer el registro).
-      await a.wait(3200);
+      await a.wait(2200);
       c.emit('hcDone');
       await c.waitFor('finA');
     },
