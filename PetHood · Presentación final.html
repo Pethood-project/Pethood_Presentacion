@@ -1062,6 +1062,7 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:58px;line-height:1.05;col
 #notes{position:fixed;left:50%;bottom:16px;transform:translate(-50%,140%);width:min(1100px,92vw);background:rgba(28,24,20,.94);color:#f3e7d8;border-radius:18px;padding:16px 22px;font-size:17px;line-height:1.5;z-index:30;transition:transform .35s;max-height:42vh;overflow:auto}
 #notes.open{transform:translate(-50%,0)}
 #notes .who{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--yel);text-transform:uppercase;margin-bottom:6px}
+#notes .tx{white-space:pre-line}
 #help{position:fixed;left:50%;top:12px;transform:translateX(-50%);font-size:13px;color:#fff;background:rgba(28,24,20,.75);padding:6px 14px;border-radius:999px;z-index:20;transition:opacity 1s;pointer-events:none}#help.hide{opacity:0}
 </style>
 </head>
@@ -1193,7 +1194,10 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:58px;line-height:1.05;col
 </section>
 
 <!-- 8 APROBAR -->
-<section class="slide story" data-notes="Camila · 0:50|Después de la visita, el refugio abre la solicitud y pasa sola a En revisión. Ve lo que pidió para Rocco junto a lo que respondió Ana: hogar, convivencia, horas sola y sus respuestas. Puede dejar una nota interna, marcarla como revisada y decidir. La app registra cada paso, y Ana lo sigue en una línea de estados. Al aprobar pasan varias cosas solas: Rocco figura como adoptado, la publicación se cierra, las demás solicitudes se cierran y Ana ve esta pantalla. Pero la adopción no termina acá, y para eso le paso a Ignacio.">
+<section class="slide story" data-notes="Agustín · 1:15|Buenas tardes, mi nombre es Agustín y voy a mostrar cómo se aprueba la solicitud de adopción por parte del refugio. Como vemos, se muestra en el chat la solicitud de Rocco generada por el adoptante, en este caso por Ana.
+Al abrirla, pasa sola a estado «En revisión» y el refugio puede revisar todos los datos de la solicitud, lo que respondió Ana junto con lo que se pidió para Rocco. Además, permite dejar una nota interna que solo puede ser leída por los mismos integrantes del refugio.
+Luego de la lectura de los datos, el refugio marca la solicitud como «Revisada». En este punto se puede aceptar o rechazar la solicitud. En este caso consideramos que la solicitud cumple con los requisitos para la adopción de Rocco y se acepta. Entonces Rocco pasa a figurar como Adoptado y se cierran su publicación y las demás solicitudes.
+A Ana le llega una notificación de que su adopción fue aceptada y puede coordinar los próximos pasos a través del chat para ir a buscar a Rocco y completar su adopción.">
   <div class="flow" data-flow="4" data-in></div>
   <div class="split">
     <div class="left">
@@ -1214,7 +1218,13 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:58px;line-height:1.05;col
 </section>
 
 <!-- 9 SEGUIR -->
-<section class="slide story" data-notes="Ignacio · 1:00|En las redes, el seguimiento es pedir una foto por privado y acordarse a quién. PetHood lo automatiza. Al aprobarse una adopción arranca una secuencia de quince pedidos: el primero llega a los dos días y después se van espaciando durante unos tres años. Cada pedido trae una pregunta, por ejemplo cómo fue la primera noche en casa, y Ana tiene 48 horas para responder con una foto sacada en el momento: la app no deja elegirla de la galería. El refugio se entera apenas responde. Y si el plazo vence, el pedido queda como no completado y la app avisa a quien entregó la mascota. El refugio ve el estado de cada animal sin escribirle a nadie.">
+<section class="slide story" data-notes="Agustín · 1:15|Como mencionamos al inicio, la idea de PetHood es que la adopción no termine solamente con la entrega de la mascota, sino que luego se pueda hacer un seguimiento post adopción.
+Como vemos acá, el adoptante recibe una notificación para completar el seguimiento, el cual consta de una serie de preguntas espaciadas en el tiempo. La primera pregunta del seguimiento es a los dos días y cada una de estas tiene un plazo de 48 hs para ser respondida.
+Luego vemos cómo Ana completa la primera pregunta del seguimiento tomando una foto de Rocco, que no puede ser subida desde la galería, junto con el mensaje de su respuesta.
+El refugio recibe una notificación y puede revisar la respuesta para asegurarse de que Rocco se encuentra en buen estado.
+Por último, también puede suceder que no se cumpla con el seguimiento, como sucede con Mia. Si vence el plazo, el sistema le avisa al refugio para que pueda comunicarse con el adoptante o tomar alguna medida.
+Así se concluyen las principales funcionalidades del proceso de adopción de Rocco.
+Así que le cedo la palabra a mi compañero.">
   <div class="flow" data-flow="5" data-in></div>
   <div class="split">
     <div class="left">
@@ -1222,13 +1232,13 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:58px;line-height:1.05;col
       <div class="vsteps" data-steps="seguimiento">
         <div class="vs" data-in style="--d:200"><span class="n"><b>1</b><svg class="ic"><use href="#i-check"/></svg></span><div><h4>Llega el pedido de seguimiento</h4><p>El primero a los 2 días, después se espacian.</p></div></div>
         <div class="vs" data-in style="--d:260"><span class="n"><b>2</b><svg class="ic"><use href="#i-check"/></svg></span><div><h4>Ana saca una foto en el momento</h4><p>Con la cámara, sin elegirla de la galería.</p></div></div>
-        <div class="vs" data-in style="--d:320"><span class="n"><b>3</b><svg class="ic"><use href="#i-check"/></svg></span><div><h4>El refugio se entera solo</h4><p>Ve la respuesta y la foto en su línea de tiempo.</p></div></div>
+        <div class="vs" data-in style="--d:320"><span class="n"><b>3</b><svg class="ic"><use href="#i-check"/></svg></span><div><h4>El refugio recibe una notificación</h4><p>Ve la respuesta y la foto en su línea de tiempo.</p></div></div>
         <div class="vs" data-in style="--d:380"><span class="n"><b>4</b><svg class="ic"><use href="#i-check"/></svg></span><div><h4>Si vence el plazo, avisa</h4><p>Sin perseguir a nadie por privado.</p></div></div>
       </div>
     </div>
     <div class="right">
       <div class="phone-wrap" style="--d:200"><div class="phone"><div class="screen" data-demo="seguimiento" data-s="A"></div></div><div class="cap"><b>A</b>Ana responde con la cámara</div></div>
-      <div class="phone-wrap" style="--d:400"><div class="phone"><div class="screen" data-demo="seguimiento" data-s="B"></div></div><div class="cap"><b>R</b>El refugio se entera solo</div></div>
+      <div class="phone-wrap" style="--d:400"><div class="phone"><div class="screen" data-demo="seguimiento" data-s="B"></div></div><div class="cap"><b>R</b>El refugio recibe una notificación</div></div>
     </div>
   </div>
 </section>
@@ -1328,6 +1338,12 @@ function makeCtx(name, slide) {
 /* Ritmo de los videos: la carga de datos va rápida, pero moverse por la app (dedo, scroll,
    cambio de pantalla) va un poco más lento para que se pueda seguir. */
 const NAV = 1.4;
+/* Tiempo extra (ms) que se queda cada frame en las diapositivas 8 y 9. Editá estos números.
+   [0] = primer frame; [N] = frame que se ve antes de pasar al paso N. */
+const HOLDS = {
+  aprobar:     [19000, 3000, 8000, 16000, 8000, 12000],  // diapositiva 8
+  seguimiento: [14000, 16000, 8000, 10000, 16000],        // diapositiva 9
+};
 
 function makeApi(screen, token, isWeb) {
   const q = s => screen.querySelector(s);
@@ -1354,6 +1370,8 @@ function makeApi(screen, token, isWeb) {
 
   const a = {
     q, qa, K, wait, rel, act,
+    // Pausa de "frame": cuenta como actividad de este celular (el otro se oscurece) mientras dura.
+    hold: ms => { act(ms, 0); return wait(ms); },
     get cur() { return cur; },
     async move(x, y, fast) {
       const ms = fast ? (isWeb ? 650 : 520) : Math.round((isWeb ? 650 : 580) * NAV);
@@ -2072,18 +2090,18 @@ DEMOS.aprobar = {
   },
   run: {
     async A(a, c) {
-      await a.wait(1200); await a.tap('rversol'); await a.show('det'); a.hide(); c.step(0);
+      await a.wait(1200); await a.hold(HOLDS.aprobar[0]); await a.tap('rversol'); await a.show('det'); a.hide(); c.step(0);
       await a.wait(700);
       a.set('estado', 'En revisión'); a.K('estado').className = 'pill blue'; a.cls('sp1', 'cur'); a.set('sd1', '06/11'); a.K('sfill').style.width = '28%';
       c.emit('rev'); await a.toast('La solicitud pasó a En revisión', 1500, 'eye');
-      c.step(1); await a.scroll('det', 150, 1300); await a.wait(1100); await a.scroll('det', 420, 1400); await a.wait(1000); await a.scroll('det', 540, 1200);
+      await a.hold(HOLDS.aprobar[1]); c.step(1); await a.scroll('det', 150, 1300); await a.wait(1100); await a.scroll('det', 420, 1400); await a.wait(1000); await a.scroll('det', 540, 1200);
       await a.tap('nota', { press: false }); await a.type('nota', 'Vino a conocerlo el sábado. Todo ok.', { speed: 34 });
-      c.step(2); await a.tap('accion');
+      await a.hold(HOLDS.aprobar[2]); c.step(2); await a.tap('accion');
       a.cls('sp1', 'cur', false); a.cls('sp1', 'done'); a.cls('sp2', 'cur'); a.set('sd2', '06/11'); a.K('sfill').style.width = '56%';
       a.set('estado', 'Revisada'); c.emit('revisada');
       await a.scroll('det', 0, 900);
       a.set('accion', 'Aprobar'); a.K('accion').classList.add('green'); await a.wait(1200);
-      c.step(3); await a.tap('accion'); a.open('bdA'); a.open('mA'); await a.wait(1200); await a.tap('okA');
+      await a.hold(HOLDS.aprobar[3]); c.step(3); await a.tap('accion'); a.open('bdA'); a.open('mA'); await a.wait(1200); await a.tap('okA');
       a.close('bdA'); a.close('mA'); a.cls('sp2', 'cur', false); a.cls('sp2', 'done'); a.cls('sp3', 'win'); a.set('sd3', 'Aprobada'); a.K('sfill').style.width = '84%';
       a.set('estado', 'Aprobada'); a.K('estado').className = 'pill green'; c.emit('ok'); c.flowDone();
       await a.toast('Aprobada: Rocco figura como Adoptado', 2600); a.hide();
@@ -2096,14 +2114,14 @@ DEMOS.aprobar = {
       a.add('msgs', `<div class="sysp">${icn('check')}La solicitud fue revisada <span class="muted">11:14</span></div>`); a.set('bpill', 'Revisada');
       await c.waitFor('ok'); await a.wait(500);
       await a.push('¡Tu solicitud fue aprobada!', 'Rocco es parte de tu familia', 'rocco'); await a.wait(800);
-      c.step(4); await a.tap('push'); a.close('push'); await a.show('ok', 'fade'); a.hide(); a.confetti('conf');
+      await a.hold(HOLDS.aprobar[4]); c.step(4); await a.tap('push'); a.close('push'); await a.show('ok', 'fade'); a.hide(); a.confetti('conf');
       for (let i = 0; i < 4; i++) { await a.wait(260); a.cls('o' + i, i === 3 ? 'win' : 'done'); a.K('ofill').style.width = (i * 28) + '%'; }
       await a.wait(1400); await a.scroll('ok', 230, 1500); await a.wait(1400);
       await a.tap('irChat'); await a.show('chat', 'back'); a.hide();
       a.set('bpill', 'Aprobada'); a.K('bpill').className = 'pill green';
       a.add('msgs', '<div class="sys">PetHood · 11:15</div>');
       a.add('msgs', `<div class="polaroid"><div class="ph" ${bg('rocco')}></div><h5>Rocco <span>adoptado</span></h5><small>Adopción del 06/11/2026</small></div>`);
-      c.step(5); await a.wait(3800); c.emit('done');
+      await a.hold(HOLDS.aprobar[5]); c.step(5); await a.wait(3800); c.emit('done');
     },
   },
 };
@@ -2156,11 +2174,11 @@ DEMOS.seguimiento = {
   },
   run: {
     async A(a, c) {
-      c.step(0); await a.wait(1100);
+      c.step(0); await a.wait(1100); await a.hold(HOLDS.seguimiento[0]);
       await a.push('Seguimiento de Rocco', '¿Cómo fue la primera noche en casa? Tenés 48 h para responder.', 'rocco');
       a.set('rowRocco', segRow('rocco', 'Rocco', 'Adopción', `${icn('clock')} Tenés una pregunta sin responder · quedan 47 h`, '0 completados · 0 sin completar', '', '<span class="pill orange">Pendiente</span>'));
       await a.wait(1100); await a.tap('push'); a.close('push'); await a.show('det'); a.hide(); await a.wait(1300);
-      c.step(1); await a.tap('subir'); a.open('cam'); await a.wait(1800);
+      await a.hold(HOLDS.seguimiento[1]); c.step(1); await a.tap('subir'); a.open('cam'); await a.wait(1800);
       await a.tap('shut', { press: false }); a.K('shut').querySelector('i').style.transform = 'scale(.8)'; a.cls('flash', 'go'); await a.wait(500);
       a.close('cam'); a.open('bdR'); a.open('shR'); await a.wait(600);
       await a.type('resp', 'Lloró un poquito y después durmió al lado de nuestra cama.', { speed: 26 });
@@ -2172,13 +2190,13 @@ DEMOS.seguimiento = {
     },
     async B(a, c) {
       await c.waitFor('resp'); await a.wait(700);
-      c.step(2); c.flowDone(); await a.push('Ana respondió el seguimiento', 'Rocco · ¿Cómo fue la primera noche en casa?', 'rocco', 2600);
+      await a.hold(HOLDS.seguimiento[2]); c.step(2); c.flowDone(); await a.push('Ana respondió el seguimiento', 'Rocco · ¿Cómo fue la primera noche en casa?', 'rocco', 2600);
       a.set('rR', segRow('rocco', 'Rocco', 'Adopción', `<span style="color:#1e7a4c">${icn('check')} Respondió hace un momento</span>`, 'Ana Castro'));
-      await a.wait(800); c.step(3);
+      await a.wait(800); await a.hold(HOLDS.seguimiento[3]); c.step(3);
       a.set('miaT', 'Esperando · quedan 1 h'); await a.wait(900); a.set('miaT', 'Esperando · quedan 10 min'); await a.wait(900);
       a.set('rM', segRow('mia', 'Mia', 'Adopción', `<span style="color:#b03a2e">${icn('alert')} Venció el plazo de 48 h</span>`, 'Carla Ruiz', '', '<span class="pill red">No completado</span>'));
       await a.push('Mia: el seguimiento venció', 'Carla no respondió a tiempo. Te avisamos para que puedas contactarla.', 'mia', 3000);
-      c.step(4); await a.tap('rR'); await a.show('rdet'); a.hide(); await a.wait(2800);
+      await a.hold(HOLDS.seguimiento[4]); c.step(4); await a.tap('rR'); await a.show('rdet'); a.hide(); await a.wait(2800);
       c.emit('end');
     },
   },
