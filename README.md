@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../poster/assets/logo.png" alt="PetHood Logo" width="200" />
+<img src="assets/logo.png" alt="PetHood Logo" width="200" />
 
 # PetHood - Presentación
 
