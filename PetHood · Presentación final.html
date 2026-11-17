@@ -1998,21 +1998,21 @@ DEMOS.solicitar = {
   },
   run: {
     async A(a, c) {
-      await a.scroll('ficha', 400, 10); await a.wait(1200);
+      await a.scroll('ficha', 400, 10); await a.wait(6500);
       await a.tap('solicitar');
-      c.step(0); a.open('bdV'); a.open('mV'); await a.wait(1100); a.cls('v1', 'ok'); await a.wait(800); a.cls('v2', 'ok'); await a.wait(1100);
+      c.step(0); a.open('bdV'); a.open('mV'); await a.wait(3500); a.cls('v1', 'ok'); await a.wait(3000); a.cls('v2', 'ok'); await a.wait(5500);
       a.close('bdV'); a.close('mV'); await a.show('wiz'); a.hide();
       // Los pasos de la izquierda van uno adelante del asistente: el 0 es la verificación.
       const step = async (n, t) => { a.pane(n); a.set('wzk', `PASO ${n + 1} DE 5`); a.set('wzt', t); c.step(n + 1); await a.wait(500); };
-      c.step(1); await a.wait(500); await a.tap('oAdop', { press: false }); a.cls('oAdop', 'on'); await a.wait(300); await a.tap('next');
-      await step(1, 'Tu hogar'); await a.wait(1800); await a.tap('next');
+      c.step(1); await a.wait(2500); await a.tap('oAdop', { press: false }); a.cls('oAdop', 'on'); await a.wait(300); await a.tap('next');
+      await step(1, 'Tu hogar'); await a.wait(8500); await a.tap('next');
       await step(2, 'Tu saludo'); await a.tap('saludo', { press: false, fast: true });
       await a.type('saludo', '¡Hola! Vi a Rocco en la app y nos encantó. Tenemos patio grande y mucho tiempo para él.', { speed: 26 });
-      await a.tap('next');
+      await a.wait(1000); await a.tap('next');
       await step(3, 'Preguntas del refugio');
       await a.tap('q1', { press: false, fast: true }); a.cls('q1', 'on'); await a.tap('q2', { press: false, fast: true }); a.cls('q2', 'on');
-      await a.tap('q3', { press: false, fast: true }); await a.type('q3', 'Dos paseos por día, a la mañana y a la tarde.', { speed: 24 }); await a.tap('next');
-      await step(4, 'Confirmación'); await a.tap('conf', { press: false }); a.cls('conf', 'on'); a.set('next', 'Enviar solicitud'); await a.wait(300); await a.tap('next');
+      await a.tap('q3', { press: false, fast: true }); await a.type('q3', 'Dos paseos por día, a la mañana y a la tarde.', { speed: 40 }); await a.wait(1000); await a.tap('next');
+      await step(4, 'Confirmación'); await a.tap('conf', { press: false }); a.cls('conf', 'on'); a.set('next', 'Enviar solicitud'); await a.wait(2300); await a.tap('next');
       c.emit('sent');
       await a.show('chat'); a.hide();
       a.add('msgs', '<div class="sys">PetHood · 11:09</div>'); a.add('msgs', solCard()); await a.wait(900);
@@ -2029,7 +2029,7 @@ DEMOS.solicitar = {
       a.add('rmsgs', '<div class="sys">PetHood · 11:09</div>'); a.add('rmsgs', solCard('<span class="pill yellow">Nueva</span>', 'rversol'));
       await a.wait(500); a.add('rmsgs', bThem('¡Hola! Vi a Rocco en la app y nos encantó. Tenemos patio grande y mucho tiempo para él.', '11:09'));
       c.step(6); c.flowDone(); c.emit('recibida');
-      await a.wait(3600);
+      await a.wait(9000);
     },
   },
 };
@@ -2239,7 +2239,7 @@ DEMOS.chat = {
       a.add('am', bThem('¡Dale! Te esperamos. Mirá cómo está hoy:', '11:14'));
       await c.waitFor('photo'); await a.wait(200);
       const ph = a.add('am', `<div class="b them photo" data-k="aph"><div class="pp ph" ${bg('rocco')}></div><div class="tm" style="padding:0 6px">11:14</div></div>`);
-      await a.wait(1600); c.step(3);
+      await a.wait(2600); c.step(3);
       // Deslizar el mensaje para responderlo.
       const p = a.rel(ph); await a.move(p.x - 30, p.y);
       a.K('aph').style.transition = 'transform .45s'; a.K('aph').style.transform = 'translateX(46px)';
@@ -2248,11 +2248,11 @@ DEMOS.chat = {
       await a.tap('acin', { press: false }); await a.type('acin', '¡Qué lindo! Ya le compramos camita', { speed: 40 }); a.cls('asend', 'on');
       await a.tap('asend'); a.set('acin', 'Escribí un mensaje…'); a.cls('acin', 'has', false); a.close('arb'); a.cls('asend', 'on', false);
       a.add('am', bMe('¡Qué lindo! Ya le compramos camita', '11:15', 'at2', 'sent', `<div class="quote"><b>Refugio Patitas</b><br>${icn('image')} Foto</div>`));
-      c.emit('m4'); await a.wait(600); a.set('at2', icn('checks')); a.hide(); await a.wait(800); a.cls('at2', 'read');
-      c.step(4); c.flowDone(); await a.wait(2800);
+      c.emit('m4'); await a.wait(600); a.set('at2', icn('checks')); a.hide(); await a.wait(800); a.cls('at2', 'read'); await a.wait(1000);
+      c.step(4); c.flowDone(); await a.wait(15000);
     },
     async B(a, c) {
-      await a.wait(2400);
+      await a.wait(13000);
       c.step(1);
       await a.tap('bcin', { press: false }); c.emit('typing'); await a.type('bcin', '¡Hola Ana! Rocco es un amor. ¿Querés venir a conocerlo?', { speed: 34 }); a.cls('bsend', 'on');
       await a.tap('bsend'); a.set('bcin', 'Escribí un mensaje…'); a.cls('bcin', 'has', false); a.cls('bsend', 'on', false);
@@ -2262,7 +2262,7 @@ DEMOS.chat = {
       await a.tap('bcin', { press: false }); c.emit('typing2'); await a.type('bcin', '¡Dale! Te esperamos. Mirá cómo está hoy:', { speed: 34 }); a.cls('bsend', 'on');
       await a.tap('bsend'); a.set('bcin', 'Escribí un mensaje…'); a.cls('bcin', 'has', false); a.cls('bsend', 'on', false);
       a.add('bm', bMe('¡Dale! Te esperamos. Mirá cómo está hoy:', '11:14', 'bt1', 'read')); c.emit('m3');
-      await a.wait(700); c.step(2);
+      await a.wait(1700); c.step(2);
       await a.tap('bplus'); a.open('bbd'); a.open('bsh'); await a.wait(900); await a.tap('bFoto', { press: false });
       a.close('bbd'); a.close('bsh'); await a.wait(450);
       a.add('bm', `<div class="b me photo"><div class="pp ph" ${bg('rocco')}></div><div class="tm" style="padding:0 6px">11:14 ${icn('checks')}</div></div>`); c.emit('photo'); a.hide();
