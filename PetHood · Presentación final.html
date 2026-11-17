@@ -1002,6 +1002,76 @@ h2.t{font-family:'Caprasimo';font-weight:400;font-size:58px;line-height:1.05;col
 .pw-grid{display:grid;grid-template-columns:1.12fr 1.88fr;gap:10px;margin-top:10px}
 .pw-card h4{margin:0;font-size:16.5px;font-weight:600;color:#201e1d;display:flex;justify-content:space-between;align-items:center}
 .pw-csv{white-space:nowrap;flex:none;display:inline-flex;gap:5px;align-items:center;border:1px solid var(--a300);background:#fff;color:var(--a700);border-radius:999px;padding:4px 10px;font-size:14px;font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.06);transition:transform .12s,filter .12s}
+.pw-dl{flex:none;display:inline-flex;padding:4px;border-radius:7px;color:var(--a600);font-size:20px;transition:transform .12s,filter .12s,background .2s}
+.pw-dl.hot{background:var(--a100);color:var(--a700)}
+.alerta.ant{background:var(--a100);border:1px solid var(--a200)}
+.alerta.ant b{color:var(--a700)}
+.alerta.ant .ic{color:var(--a600)}
+.pw-scr{will-change:transform}
+.pw-side a.hv{background:rgba(255,255,255,.12);color:#fff}
+.ebdg{border:1px solid transparent}
+.ebdg.pen{border-color:#f2d27a}.ebdg.act{border-color:#bbe5a0}.ebdg.sus{background:#fef2f2;color:#dc2626;border-color:#fecaca}
+.pw-tbl.a td,.pw-tbl.a th{padding:7px 5px;font-size:13px;white-space:nowrap}
+.pw-tbl.a th{font-size:11.5px}
+.abtn.bl{border-color:#bfdbfe;background:#eff6ff;color:#1d4ed8}
+.pw-tbl.a .abtn{font-size:12px;padding:3px 6px;border-radius:6px}
+.abtn .ic{font-size:13px}
+.pw-fb{border:1px solid #bbf7d0;background:#f0fdf4;color:#15803d;border-radius:7px;padding:6px 11px;font-size:14px;margin-top:10px;display:none}
+.pw-fb.open{display:block}
+.pw-fil{display:flex;gap:10px;align-items:flex-end;border:1px solid #eee7db;background:#fff;border-radius:10px;padding:10px 12px;margin-top:12px}
+.pw-fil label{display:block;font-size:12px;font-weight:500;color:#645c50;margin-bottom:3px}
+.pw-fil .f{border:1px solid #dcd3c4;border-radius:6px;padding:5px 9px;font-size:14px;color:#201e1d;min-width:110px;display:flex;justify-content:space-between;gap:10px;background:#fff}
+.pw-fil .f.ph0{color:#a19786}
+.pw-fil .nb{margin-left:auto;background:var(--a600);color:#fff;border-radius:8px;padding:8px 14px;font-size:14.5px;font-weight:500}
+.pwbd{position:absolute;inset:0;background:rgba(32,30,29,.45);opacity:0;pointer-events:none;transition:opacity .3s;z-index:20}
+.pwbd.open{opacity:1}
+.pwmd{position:absolute;left:50%;top:50%;width:470px;max-height:92%;overflow:hidden;background:#fff;border-radius:12px;box-shadow:0 24px 60px -20px rgba(0,0,0,.5);opacity:0;pointer-events:none;transform:translate(-50%,-46%);transition:all .3s;z-index:21;font-size:14px;color:#201e1d}
+.pwmd.open{opacity:1;transform:translate(-50%,-50%)}
+.pwmd .mh{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #eee7db;font-size:16px;font-weight:600}
+.pwmd .mh .ic{color:#a19786;font-size:15px}
+.pwmd .mb{padding:12px 16px}
+.pwmd .mf{display:flex;justify-content:flex-end;gap:8px;padding:10px 16px;border-top:1px solid #eee7db}
+.pwmd .mbtn{border:1px solid #dcd3c4;border-radius:7px;padding:6px 14px;font-size:14px;color:#201e1d;display:inline-flex;gap:6px;align-items:center}
+.pwmd .mbtn.pr{background:var(--a600);border-color:var(--a600);color:#fff}
+.pwmd .sh{font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#a19786;text-transform:uppercase;margin:10px 0 5px}
+.pwmd .cells{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.pwmd .cells div{border:1px solid #eee7db;background:#fbf8f3;border-radius:7px;padding:5px 8px;font-size:11.5px;color:#a19786}
+.pwmd .cells b{display:block;font-size:14px;font-weight:600;color:#201e1d}
+.pwmd .mut{color:#a19786}
+.pwmd .chp{display:inline-block;border:1px solid #dcd3c4;border-radius:999px;padding:1px 9px;font-size:11.5px;margin-right:5px}
+.pwmd .chp.y{border-color:#f2d27a;background:#fffbeb;color:#b45309}.pwmd .chp.g{border-color:#bbf7d0;background:#f0fdf4;color:#15803d}
+.pwmd .motivo{border:1px solid #fecaca;background:#fef2f2;border-radius:8px;padding:7px 11px;margin-top:9px;font-size:13.5px}
+.pwmd .motivo small{display:block;color:#b91c1c;font-size:11.5px;text-transform:uppercase}
+.pwmd .objc{border:1px solid #eee7db;border-radius:10px;padding:10px;margin-top:9px;display:flex;gap:10px}
+.pwmd .objc i{width:48px;height:48px;border-radius:8px;background-size:cover;background-position:center;flex:none}
+.pwmd .objc h5{margin:0;font-family:'Caprasimo';font-weight:400;font-size:17px}
+.pwmd .objc p{margin:3px 0 0;font-size:12.5px;color:#645c50;line-height:1.35}
+.pwmd .ta{border:1px solid #dcd3c4;border-radius:7px;padding:7px 10px;min-height:48px;font-size:13.5px;color:#a19786;margin-top:4px}
+.pwmd .ta.has{color:#201e1d}
+.gch{display:flex;justify-content:space-between;gap:8px;height:215px;margin-top:8px}
+.gch>div{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:13px;color:#645c50}
+.gch>div>span{flex:1;width:100%;display:flex;align-items:flex-end;justify-content:center;gap:3px}
+.gch i{display:block;width:26px;height:0;border-radius:3px 3px 0 0;transition:height 1.1s cubic-bezier(.3,.6,.3,1)}
+
+.pw-per2{display:inline-flex;align-items:center;gap:8px;border:1px solid #dcd3c4;background:#f9f4ed;border-radius:9px;padding:5px 8px 5px 11px;font-size:14px;color:#201e1d;white-space:nowrap}
+.pw-per2 em{font-style:normal;font-size:13px;font-weight:600;color:#645c50}
+.pw-per2 .ic{color:#201e1d;font-size:15px}
+.pw-per2 .ap{background:var(--a600);color:#fff;border-radius:6px;padding:4px 10px;font-weight:500;font-size:13.5px}
+.pw-side .col{margin-top:auto;border-top:1px solid rgba(255,255,255,.12);padding:10px 11px 2px;display:flex;gap:9px;align-items:center;font-size:16px;font-weight:500;color:rgba(255,255,255,.4)}
+.pw-tbl.l th,.pw-tbl.l td{text-align:left;white-space:nowrap;padding:8px 7px;font-size:14px}
+.pw-tbl.l th{font-size:12.5px}
+.pw-tbl.l .abtn{font-size:13px;padding:3px 8px}
+.pw-tbl.l .ebdg{font-size:13px}
+.pw-tbl .pmc{display:flex;align-items:center;gap:9px}
+.pw-tbl .pmc i{width:26px;height:26px;border-radius:7px;background-size:cover;background-position:center;flex:none}
+.abtn.info{border-radius:999px;border-color:#bae6fd;background:#f0f9ff;color:#0369a1}
+.abtn.rj{border-radius:999px}
+.fchip{display:inline-flex;align-items:center;gap:6px;border:1px solid #dcd3c4;background:#f9f4ed;border-radius:999px;padding:4px 10px;font-size:14px;color:#474238}
+.fchip b{font-size:12px;font-weight:600;background:#eee7db;border-radius:999px;padding:0 6px;color:#645c50}
+.fchip.red{background:#e00000;border-color:#e00000;color:#fff;font-weight:600}
+.fchip.red b{background:#fff;color:#e00000}
+
+.pw-card.hov{box-shadow:0 0 0 2px var(--a500),0 1px 5px rgba(150,120,80,.10)}
 .donut{display:flex;align-items:center;gap:12px;margin-top:6px}
 .donut .dn{position:relative;width:86px;height:86px;flex:none}
 .donut svg{width:86px;height:86px;transform:rotate(-90deg)}
@@ -1273,10 +1343,10 @@ Así que le cedo la palabra a mi compañero.">
   <div class="split" style="gap:30px">
     <div class="left syncwrap" data-sync="panel" style="width:400px">
       <div class="kicker" data-in>Gestión</div>
-      <h2 class="t" data-in style="--d:80">Un panel web para refugios y administradores</h2>
+      <h2 class="t" data-in style="--d:80">Un panel web para cada perfil</h2>
       <div class="roles">
-        <div class="role" data-in style="--d:250"><h4><svg class="ic"><use href="#i-building"/></svg>Refugio</h4><p>Dashboard del período, solicitudes demoradas, mascotas, publicaciones, solicitudes y campañas, con exportación a CSV.</p></div>
-        <div class="role" data-in style="--d:350"><h4><svg class="ic"><use href="#i-shield"/></svg>Administrador</h4><p>Números globales, verificación de refugios y usuarios, moderación de reportes, catálogos y preguntas frecuentes.</p></div>
+        <div class="role" data-in style="--d:250"><h4><svg class="ic"><use href="#i-building"/></svg>Refugio</h4><p>Dashboard del período, solicitudes demoradas y exportación a CSV.</p></div>
+        <div class="role" data-in style="--d:350"><h4><svg class="ic"><use href="#i-shield"/></svg>Administrador</h4><p>Números globales, verificación de refugios y moderación de reportes.</p></div>
       </div>
     </div>
     <div class="right">
@@ -2311,86 +2381,130 @@ const STATIC = {
 };
 
 /* ================= Demo: panel web (fiel a apps/web-admin) ================= */
+const lu = d => `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+const L_BAN = lu('<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>');
+const L_TRASH = lu('<path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>');
+const L_REACT = lu('<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>');
+const L_OK = lu('<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>');
+const bVer = (k = '') => `<span class="abtn bl" ${k ? `data-k="${k}"` : ''}>${icn('eye')} Ver</span>`;
+const bSus = `<span class="abtn no">${L_BAN} Suspender</span>`, bBaja = `<span class="abtn no">${L_TRASH} Dar de baja</span>`;
 const LINKS_REF = [['chart', 'Dashboard'], ['paw', 'Mascotas'], ['megaphone', 'Publicaciones'], ['clipboard', 'Solicitudes'], ['coins', 'Campañas'], ['building', 'Perfil público']];
 const LINKS_ADM = [['chart', 'Dashboard'], ['home', 'Refugios'], ['paw', 'Mascotas'], ['megaphone', 'Publicaciones'], ['clipboard', 'Solicitudes'], ['flag', 'Campañas'], ['users', 'Usuarios'], ['alert', 'Moderación'], ['chat', 'Consultas'], ['help', 'FAQs'], ['list', 'Catálogos']];
-const pwTop = rol => `<div class="pw-top"><div class="lg"><img src="${IMG.logo}" alt="">PetHood</div><div class="us"><i>${icn('user')}</i>${rol}</div></div>`;
-const pwSide = (links, on, keys = {}) => `<div class="pw-side">${links.map(([i, l]) => `<a class="${l === on ? 'on' : ''}" ${keys[l] ? `data-k="${keys[l]}"` : ''}>${icn(i)}${l}</a>`).join('')}</div>`;
+const pwTop = rol => `<div class="pw-top"><div class="lg"><img src="${IMG.logo}" alt="">PetHood</div><div class="us"><i>${icn('user')}</i>${rol}<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#82796a;font-size:20px"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg></div></div>`;
+const pwSide = (links, on, keys = {}) => `<div class="pw-side">${links.map(([i, l]) => `<a class="${l === on ? 'on' : ''}" ${keys[l] ? `data-k="${keys[l]}"` : ''}>${icn(i)}${l}</a>`).join('')}<div class="col"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m16 15-3-3 3-3"/></svg>Colapsar</div></div>`;
 const kpi = (et, k, color, ic, nota = '') => `<div class="pw-card pw-kpi"><div class="tp"><p>${et}</p><span class="bd ${color}">${icn(ic)}</span></div><b data-k="${k}">0</b>${nota ? `<small>${nota}</small>` : ''}</div>`;
-const SOL_ESTADOS = [['Pendiente', 8, 'var(--a600)'], ['En revisión', 6, '#f3cc6a'], ['Revisada', 4, 'var(--a400)'], ['Aprobada', 12, '#728157'], ['Rechazada', 4, '#ef4444']];
+const SOL_ESTADOS = [['Pendiente', 8, 'var(--a600)'], ['En revisión', 6, '#f3cc6a'], ['Aprobada', 12, '#728157'], ['Rechazada', 4, '#ef4444'], ['Cancelada', 4, '#b8b3a2']];
 const donut = (items, k) => {
   const total = items.reduce((s, i) => s + i[1], 0), C = 2 * Math.PI * 15.9155; let acc = 0;
   const segs = items.map(([, v, col]) => { const l = v / total * C; const s = `<circle cx="18" cy="18" r="15.9155" fill="none" stroke="${col}" stroke-width="4" stroke-dasharray="0 ${C}" data-da="${l} ${C - l}" stroke-dashoffset="${-acc}" style="transition:stroke-dasharray 1s ease-out"/>`; acc += l; return s; }).join('');
   return `<div class="donut" data-k="${k}"><div class="dn"><svg viewBox="0 0 36 36">${segs}</svg><div><b>${total}</b><small>total</small></div></div><ul>${items.map(([e, v, col]) => `<li><i style="background:${col}"></i>${e}<b>${Math.round(v / total * 100)}%</b></li>`).join('')}</ul></div>`;
 };
 const barl = items => { const max = Math.max(...items.map(i => i[1])); return `<ul class="barl">${items.map(([e, v]) => `<li><div><span>${e}</span><b>${v}</b></div><span class="tr"><i data-w="${v / max * 100}"></i></span></li>`).join('')}</ul>`; };
-const DON = [['Ago', 42000, 60000], ['Sep', 58000, 60000], ['Oct', 47000, 60000], ['Nov', 38000, 60000]];
+const DON = [['Jun', 15000, 42000], ['Jul', 22000, 42000], ['Ago', 30000, 42000], ['Sep', 42000, 42000], ['Oct', 38000, 42000], ['Nov', 38000, 42000]];
 
 DEMOS.panel = {
   pause: 2400,
   screens: {
     A: () => `
     <div class="wv start" data-v="ref" style="flex-direction:column">${pwTop('Refugio')}
-     <div class="pw-body">${pwSide(LINKS_REF, 'Dashboard')}
-      <div class="pw-main">
-       <div class="pw-h"><div><h3>Refugio Patitas</h3><small>Godoy Cruz, Mendoza</small></div><span class="pw-sel">${icn('calendar')} Agosto – Noviembre 2026 ${icn('chevdown')}</span></div>
-       <div class="pw-per">Período: agosto a noviembre de 2026</div>
+     <div class="pw-body">${pwSide(LINKS_REF, 'Dashboard', { Mascotas: 'sMas', Publicaciones: 'sPub', Solicitudes: 'sSol', 'Campañas': 'sCam' })}
+      <div class="pw-main"><div class="pw-scr" data-k="rscr" style="transition:transform 1s ease">
+       <div class="pw-h"><div><h3>Refugio Patitas</h3><small>Av. San Martín 1234, Ciudad de Mendoza - Mendoza</small></div><span class="pw-per2"><em>Período:</em> Junio 2026 ${icn('calendar')} – Noviembre 2026 ${icn('calendar')} <span class="ap">Aplicar</span></span></div>
+       <div class="pw-per">Período: jun – nov 2026</div>
        <div class="pw-kpis">
         ${kpi('Animales adoptados', 'k1', 'verde', 'heart')}${kpi('Solicitudes', 'k2', 'celeste', 'clipboard')}${kpi('En refugio', 'k3', 'naranja', 'paw')}
         <div class="pw-card pw-kpi don"><div class="tp"><p>Donación del período</p><span class="bd">${icn('coins')}</span></div><b data-k="k4">$0</b><small>Objetivo: $250.000</small><div class="pg"><i data-k="kp"></i></div></div>
+        ${kpi('Solicitudes demoradas', 'k5', 'rojo', 'alert', 'Más de 5 días sin respuesta')}
        </div>
        <div class="pw-grid">
         <div style="display:flex;flex-direction:column;gap:10px">
-         <div class="pw-card"><h4 style="gap:6px">Solicitudes <span class="pw-csv" data-k="csv">${icn('download')} Exportar CSV</span></h4>${donut(SOL_ESTADOS, 'dn1')}</div>
-         <div class="pw-card"><h4>Mascotas por estado</h4>${barl([['Disponible', 10], ['En tratamiento', 3], ['En tránsito', 4], ['Adoptado', 12]])}</div>
+         <div class="pw-card"><h4 style="gap:6px">Solicitudes recibidas <span class="pw-dl" data-k="csv">${icn('download')}</span></h4>${donut(SOL_ESTADOS, 'dn1')}</div>
+         <div class="pw-card"><h4>Mascotas por estado <span class="pw-dl">${icn('download')}</span></h4>${barl([['Disponible', 10], ['En tratamiento', 3], ['En tránsito', 4], ['Adoptado', 12]])}</div>
+         <div class="pw-card"><h4>Publicaciones por antigüedad</h4>${barl([['0-15 días', 6], ['15-30 días', 4], ['30-60 días', 2], ['+60 días', 1]])}</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px">
-         <div class="pw-card"><h4>Flujo de donaciones <span class="legend"><span><i style="width:9px;height:9px;border-radius:50%;background:#22c55e;display:inline-block"></i>Recaudado</span><span><i style="width:12px;height:2px;background:#474238;display:inline-block"></i>Objetivo</span></span></h4>
+         <div class="pw-card"><h4>Flujo de donaciones <span class="pw-dl">${icn('download')}</span><span class="legend"><span><i style="width:9px;height:9px;border-radius:50%;background:#22c55e;display:inline-block"></i>Recaudado</span><span><i style="width:12px;height:2px;background:#474238;display:inline-block"></i>Objetivo</span></span></h4>
           <div class="dchart">${DON.map(([m, v, o]) => `<div><b>$${v.toLocaleString('es-AR')}</b><span><i data-h="${v / 70000 * 100}"></i><em style="bottom:${o / 70000 * 100}%"></em></span>${m}</div>`).join('')}</div></div>
-         <div class="pw-card"><h4>Solicitudes que necesitan atención <span style="font-size:14.5px;font-weight:500;color:var(--a700)">Ver solicitudes demoradas</span></h4>
-          <div class="alerta"><span>${icn('alert')} <b style="color:#201e1d">Toby</b> · Diego Fernández</span><b>7 días sin respuesta</b></div>
-          <div class="alerta"><span>${icn('alert')} <b style="color:#201e1d">Mia</b> · Carla Ruiz</span><b>6 días sin respuesta</b></div></div>
+         <div class="pw-card" data-k="alSol"><h4>Solicitudes que necesitan atención <span style="font-size:14.5px;font-weight:500;color:var(--a700)">Ver solicitudes demoradas</span></h4>
+          <div class="alerta"><span>${icn('alert')} <b style="color:#201e1d">Toby</b></span><b>7 días sin respuesta</b></div>
+          <div class="alerta"><span>${icn('alert')} <b style="color:#201e1d">Mia</b></span><b>6 días sin respuesta</b></div></div>
+         <div class="pw-card" data-k="alPub"><h4>Publicaciones que llevan mucho tiempo activas <span style="font-size:14.5px;font-weight:500;color:var(--a700)">Ver antiguas</span></h4>
+          <div class="alerta ant"><span>${icn('clock')} <b style="color:#201e1d">Nina</b></span><b>74 días publicada</b></div></div>
         </div>
        </div>
-       <div class="wtoast" data-k="t1">${icn('check')} solicitudes_2026-11.csv exportado</div>
+       </div>
+      </div></div>
+    </div>
+    <div class="wv" data-v="rsol" style="flex-direction:column">${pwTop('Refugio')}
+     <div class="pw-body">${pwSide(LINKS_REF, 'Solicitudes', { Mascotas: 'rMas', Publicaciones: 'rPub', Campañas: 'rCam', Dashboard: 'rDash' })}
+      <div class="pw-main">
+       <div class="pw-h"><div><h3>Solicitudes</h3><small>Solicitudes pendientes o en revisión que llevan 5 días o más sin respuesta.</small></div><span class="pw-csv" data-k="csvB" style="border-color:var(--a600)">${icn('download')} Exportar CSV</span></div>
+       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px"><span class="fchip">Todas <b>14</b></span><span class="fchip">Pendiente <b>4</b></span><span class="fchip">En revisión <b>2</b></span><span class="fchip">Revisada <b>0</b></span><span class="fchip">Aprobada <b>4</b></span><span class="fchip">Rechazada <b>4</b></span><span class="fchip">Cancelada <b>0</b></span><span class="fchip">Cerrada <b>0</b></span><span class="fchip red">${icn('alert')} Solicitudes demoradas <b>2</b></span></div>
+       <div class="pw-tbl l"><table><tr><th>Mascota</th><th>Solicitante</th><th>Tipo</th><th>Estado</th><th>Días</th><th>Fecha</th><th>Acciones</th></tr>
+        <tr data-k="sl1"><td><span class="pmc"><i ${bg('toby')}></i><b>Toby</b></span></td><td>Diego Fernández</td><td>Adopción</td><td><span class="ebdg pen">Pendiente</span></td><td>7</td><td>10/11/2026</td><td><span class="abtn info" data-k="revisar">${icn('checks')} Marcar revisada</span> <span class="abtn no rj">${icn('x')} Rechazar</span></td></tr>
+        <tr><td><span class="pmc"><i ${bg('mia')}></i><b>Mia</b></span></td><td>Carla Ruiz</td><td>Adopción</td><td><span class="ebdg pen">En revisión</span></td><td>6</td><td>11/11/2026</td><td><span class="abtn info">${icn('checks')} Marcar revisada</span> <span class="abtn no rj">${icn('x')} Rechazar</span></td></tr></table></div>
       </div></div>
     </div>
     <div class="wv" data-v="adm" style="flex-direction:column">${pwTop('Administrador')}
-     <div class="pw-body">${pwSide(LINKS_ADM, 'Dashboard', { Refugios: 'sRefs' })}
-      <div class="pw-main">
+     <div class="pw-body">${pwSide(LINKS_ADM, 'Dashboard', { Refugios: 'sRefs', 'Moderación': 'sMod' })}
+      <div class="pw-main"><div class="pw-scr" data-k="ascr" style="transition:transform 1s ease">
        <div class="pw-h"><div><h3>Dashboard</h3><small>Resumen general de la plataforma.</small></div></div>
        <div class="pw-kpis" style="margin-top:12px">
         ${kpi('Usuarios activos', 'g1', 'celeste', 'users')}${kpi('Mascotas registradas', 'g2', 'naranja', 'paw')}${kpi('Refugios verificados', 'g3', 'verde', 'shield')}${kpi('Publicaciones activas', 'g4', 'celeste', 'megaphone')}
         ${kpi('Adopciones concretadas', 'g5', 'verde', 'heart')}${kpi('Campañas activas', 'g6', 'naranja', 'flag')}${kpi('Donado declarado', 'g7', 'verde', 'coins')}${kpi('Reportes pendientes', 'g8', 'rojo', 'alert')}
        </div>
        <div class="pw-grid">
-        <div class="pw-card"><h4>Solicitudes por estado</h4>${donut([['Pendiente', 31, 'var(--a600)'], ['En revisión', 18, '#f3cc6a'], ['Aprobada', 96, '#728157'], ['Rechazada', 22, '#ef4444']], 'dn2')}</div>
-        <div class="pw-card"><h4>Usuarios por rol</h4>${barl([['Adoptante', 1102], ['Miembro de refugio', 164], ['Administrador', 18]])}</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+         <div class="pw-card"><h4>Solicitudes por estado <span class="pw-dl">${icn('download')}</span></h4>${donut([['Pendiente', 17, 'var(--a600)'], ['En revisión', 2, '#f3cc6a'], ['Aprobada', 4, '#728157'], ['Rechazada', 4, '#ef4444'], ['Cancelada', 1, '#b8b3a2'], ['Revisada', 0, '#f59e63'], ['Cerrada', 0, '#d9d3c4']], 'dn2')}</div>
+         <div class="pw-card"><h4>Mascotas por estado <span class="pw-dl">${icn('download')}</span></h4>${barl([['Disponible', 13], ['En Tratamiento', 2], ['Adoptado', 5], ['Fallecido', 1], ['En Tránsito', 1]])}</div>
+         <div class="pw-card"><h4>Usuarios por rol <span class="pw-dl">${icn('download')}</span></h4>${barl([['Administrador', 2], ['Refugio', 28], ['Adoptante', 60]])}</div>
+        </div>
+        <div class="pw-card"><h4>Publicaciones y adopciones (últimos 6 meses) <span class="pw-dl">${icn('download')}</span></h4>
+         <div class="legend" style="margin-top:6px"><span><i style="width:9px;height:9px;border-radius:50%;background:var(--a600);display:inline-block"></i>Publicaciones</span><span><i style="width:9px;height:9px;border-radius:50%;background:#728157;display:inline-block"></i>Adopciones</span></div>
+         <div class="gch">${[['Jun', 0, 0], ['Jul', 3, 1], ['Ago', 3, 0], ['Sep', 8, 0], ['Oct', 6, 3], ['Nov', 0, 0]].map(([m, p, d]) => `<div><span><i data-h="${p / 8 * 100}" style="background:var(--a600)"></i><i data-h="${d / 8 * 100}" style="background:#728157"></i></span>${m}</div>`).join('')}</div></div>
        </div>
-      </div></div>
+      </div></div></div>
     </div>
     <div class="wv" data-v="arefs" style="flex-direction:column">${pwTop('Administrador')}
      <div class="pw-body">${pwSide(LINKS_ADM, 'Refugios', { 'Moderación': 'sMod' })}
       <div class="pw-main">
-       <div class="pw-h"><div><h3>Refugios</h3><small>Verificá los refugios que se registran y gestioná los activos.</small></div></div>
-       <div class="pw-filt"><div><label>Buscar</label><div>Nombre o email</div></div><div><label>Estado</label><div>Pendiente de verificación ${icn('chevdown')}</div></div></div>
-       <div class="pw-tbl"><table><tr><th>Nombre</th><th>Contacto</th><th>Estado</th><th>Verificado</th><th>Acciones</th></tr>
-        <tr data-k="rf1"><td><b>Huellitas del Sur</b></td><td>huellitas@mail.com</td><td data-k="rf1e"><span class="ebdg pen">Pendiente de verificación</span></td><td data-k="rf1v">No</td><td data-k="rf1a"><span class="abtn ok" data-k="verif">${icn('check')} Verificar</span></td></tr>
-        <tr><td><b>Cuatro Patas</b></td><td>4patas@mail.com</td><td><span class="ebdg pen">Pendiente de verificación</span></td><td>No</td><td><span class="abtn ok">${icn('check')} Verificar</span></td></tr>
-        <tr><td><b>Refugio Patitas</b></td><td>patitas@mail.com</td><td><span class="ebdg act">Activo</span></td><td>Sí</td><td><span class="abtn no">Suspender</span></td></tr>
-        <tr><td><b>Hogar Animal Maipú</b></td><td>hogaranimal@mail.com</td><td><span class="ebdg act">Activo</span></td><td>Sí</td><td><span class="abtn no">Suspender</span></td></tr></table></div>
-       <div class="wtoast" data-k="t2">${icn('check')} Huellitas del Sur ya está verificado</div>
-      </div></div>
+       <div class="pw-h"><div><h3>Refugios</h3><small>Alta, validación, suspensión y baja de refugios.</small></div></div>
+       <div class="pw-fil"><div><label>Buscar</label><div class="f ph0">Nombre del refugio</div></div><div><label>Estado</label><div class="f">Todos ${icn('chevdown')}</div></div><div><label>Verificado</label><div class="f" style="min-width:80px">Todos ${icn('chevdown')}</div></div><span class="nb">Nuevo refugio</span></div>
+       <div class="pw-fb" data-k="fb1">Refugio verificado correctamente.</div>
+       <div class="pw-tbl a"><table><tr><th>Nombre</th><th>Contacto</th><th>Estado</th><th>Verificado</th><th>Acciones</th></tr>
+        <tr><td><b>Refugio Patitas</b></td><td>contacto@patitas.test</td><td><span class="ebdg act">Activo</span></td><td>Sí</td><td>${bVer()} ${bSus} ${bBaja}</td></tr>
+        <tr><td><b>Refugio Cuatro Patas</b></td><td>info@cuatropatas.test</td><td><span class="ebdg act">Activo</span></td><td>Sí</td><td>${bVer()} ${bSus} ${bBaja}</td></tr>
+        <tr data-k="rf1"><td><b>Colitas de Mendoza</b></td><td>contacto2@refugios.test</td><td data-k="rf1e"><span class="ebdg pen">Pendiente de verificación</span></td><td data-k="rf1v">No</td><td data-k="rf1a">${bVer()} <span class="abtn ok" data-k="verif">${L_OK} Verificar</span> ${bBaja}</td></tr>
+        <tr><td><b>Amigos de Cuatro Patas</b></td><td>contacto3@refugios.test</td><td><span class="ebdg sus">Suspendido</span></td><td>Sí</td><td>${bVer()} <span class="abtn ok">${L_REACT} Reactivar</span> ${bBaja}</td></tr></table></div>
+      </div>
+      <div class="pwbd" data-k="bdm"></div>
+      <div class="pwmd" data-k="mdv"><div class="mh">Verificar: Colitas de Mendoza ${icn('x')}</div>
+       <div class="mb"><div style="display:flex;gap:12px"><div style="width:56px;height:56px;border-radius:8px;background:#fbf8f3;color:#a19786;font-size:11px;display:grid;place-items:center;flex:none">Sin logo</div><div style="line-height:1.55;font-size:13.5px">Calle 74 102, Mendoza - Mendoza<br>2614500274<br>contacto2@refugios.test<br><span class="mut">Refugio barrial de Mendoza.</span></div></div>
+        <div class="sh">Resumen</div><div class="cells"><div>Mascotas activas<b>0</b></div><div>Publicaciones activas<b>0</b></div><div>Solicitudes pendientes<b>0</b></div><div>Campañas activas<b>0</b></div><div>Reseñas recibidas<b>0</b></div><div>Promedio reseñas<b>&nbsp;</b></div></div>
+        <div class="sh">Miembros</div><div style="font-size:13.5px">Sofía Sosa — operador2@pethood.test</div></div>
+       <div class="mf"><span class="mbtn">Cancelar</span><span class="mbtn pr" data-k="vok">${icn('check')} Verificar</span></div></div>
+     </div>
     </div>
     <div class="wv" data-v="amod" style="flex-direction:column">${pwTop('Administrador')}
      <div class="pw-body">${pwSide(LINKS_ADM, 'Moderación')}
       <div class="pw-main">
-       <div class="pw-h"><div><h3>Moderación</h3><small>Reportes de publicaciones, avisos, reseñas y mensajes.</small></div></div>
-       <div class="pw-tbl"><table><tr><th>Objeto</th><th>Motivo</th><th>Reportes</th><th>Estado</th><th>Acciones</th></tr>
-        <tr data-k="md1"><td><b>Aviso de perdido</b></td><td>Contenido engañoso</td><td>3</td><td data-k="md1e"><span class="ebdg rev">Pendiente</span></td><td data-k="md1a"><span class="abtn nt">Ver</span> <span class="abtn no" data-k="ocultar">Ocultar</span></td></tr>
-        <tr><td><b>Reseña</b></td><td>Lenguaje ofensivo</td><td>1</td><td><span class="ebdg rev">Pendiente</span></td><td><span class="abtn nt">Ver</span> <span class="abtn no">Ocultar</span></td></tr>
-        <tr><td><b>Mensaje</b></td><td>Spam</td><td>2</td><td><span class="ebdg act">Resuelto</span></td><td><span class="abtn nt">Ver</span></td></tr></table></div>
-       <div class="wtoast" data-k="t3">${icn('check')} Aviso ocultado y usuario notificado</div>
-      </div></div>
+       <div class="pw-h"><div><h3>Moderación</h3><small>Reportes de publicaciones, personas, refugios, reseñas, avisos, campañas y mensajes.</small></div></div>
+       <div class="pw-fil"><div><label>Estado</label><div class="f">Pendientes ${icn('chevdown')}</div></div><div><label>Tipo</label><div class="f" style="min-width:150px">Todos ${icn('chevdown')}</div></div></div>
+       <div class="pw-fb" data-k="fb2">Reporte resuelto. El reportante recibió tu respuesta.</div>
+       <div class="pw-tbl a"><table><tr><th>Tipo</th><th>Reportado</th><th>Motivo</th><th>Reportante</th><th>Estado</th><th>Fecha</th><th>Acciones</th></tr>
+        <tr data-k="md1"><td>Refugio</td><td><span class="pmc"><i ${bg('refugio')}></i>Refugio Patitas</span></td><td>Refugio pide dinero por adelantado…</td><td>Carla Ruiz</td><td>Pendiente</td><td>3/10/2026</td><td>${bVer('ver1')}</td></tr>
+        <tr><td>Persona</td><td>Elena Martinez</td><td>Lenguaje ofensivo en el chat</td><td>Carla Ruiz</td><td>Pendiente</td><td>8/10/2026</td><td>${bVer()}</td></tr>
+        <tr><td>Publicación</td><td><span class="pmc"><i ${bg('max')}></i>Nala busca hogar</span></td><td>Fotos que no corresponden…</td><td>Carla Ruiz</td><td>Pendiente</td><td>11/10/2026</td><td>${bVer()}</td></tr></table></div>
+      </div>
+      <div class="pwbd" data-k="bdr"></div>
+      <div class="pwmd" data-k="mdr"><div class="mh">Reporte de refugio ${icn('x')}</div>
+       <div class="mb"><span class="chp">Refugio</span><span class="chp y">Pendiente</span><span class="chp g">Objeto: Activo</span><span class="mut" style="font-size:11.5px">Refugio Patitas</span>
+        <div class="motivo"><small>Motivo · Carla Ruiz · 3/10/26</small>Refugio pide dinero por adelantado para la adopción</div>
+        <div class="objc"><i ${bg('refugio')}></i><div><h5>Refugio Patitas</h5><p>Av. San Martín 1234, Ciudad de Mendoza - Mendoza · contacto@patitas.test<br>16 mascotas activas · Reseñas 4.5 (2)</p></div></div>
+        <div style="margin-top:8px"><span class="abtn no">${L_BAN} Suspender el refugio</span></div>
+        <div style="font-size:13px;font-weight:500;margin-top:10px">Respuesta al reportante</div><div class="ta" data-k="resp">Contale qué decidiste. Le llega como notificación.</div></div>
+       <div class="mf"><span class="mbtn">Cerrar</span><span class="mbtn pr" data-k="resolver">Resolver reporte</span></div></div>
+     </div>
     </div>`,
   },
   run: {
@@ -2401,23 +2515,37 @@ DEMOS.panel = {
         a.qa(`[data-v=${v}] .barl i`).forEach(i => i.style.width = i.dataset.w + '%');
         a.qa(`[data-v=${v}] .dchart i`).forEach(i => i.style.height = i.dataset.h + '%');
       };
+      // Refugio: el cursor solo se mueve para hacer clic. Resaltados sin mouse.
+      const sobre = (k, on = true) => a.K(k).classList.toggle(k.startsWith('r') && k.length < 5 ? 'hv' : 'hov', on);
+      const mirar = async (k, ms) => { sobre(k); await a.wait(ms); sobre(k, false); };
       c.feat(0); await a.wait(500);
-      a.count('k1', 0, 12, 1200); a.count('k2', 0, 34, 1200); a.count('k3', 0, 17, 1200); a.count('k4', 0, 185000, 1400, money);
+      a.count('k1', 0, 12, 1200); a.count('k2', 0, 34, 1200); a.count('k3', 0, 17, 1200); a.count('k4', 0, 185000, 1400, money); a.count('k5', 0, 2, 800);
       a.K('kp').style.width = '74%'; llenar('ref'); a.act(1400);
-      await a.wait(2800); await a.tap('csv'); a.open('t1'); await a.wait(2200); a.close('t1'); await a.wait(700);
+      await a.wait(2800);
+      await mirar('alSol', 1400);
+      await a.scroll(a.K('rscr'), 235, 1000);
+      await mirar('alPub', 1500);
+      await a.tap('alSol'); await a.show('rsol', 'fade');
+      await a.wait(1600); await mirar('sl1', 1500);
+      for (const k of ['rMas', 'rPub', 'rCam']) await mirar(k, 600);
+      await a.tap('csvB'); a.set('csvB', icn('download') + ' Exportando…'); await a.wait(1300); a.set('csvB', icn('download') + ' Exportar CSV'); a.hide(); await a.wait(500);
       c.feat(1); await a.show('adm', 'fade'); a.hide();
-      [['g1', 1284], ['g2', 342], ['g3', 18], ['g4', 121], ['g5', 96], ['g6', 9], ['g8', 3]].forEach(([k, n]) => a.count(k, 0, n, 1300));
-      a.count('g7', 0, 1240000, 1400, money); llenar('adm');
-      await a.wait(2600);
+      [['g1', 60], ['g2', 22], ['g3', 12], ['g4', 16], ['g5', 4], ['g6', 2], ['g8', 3]].forEach(([k, n]) => a.count(k, 0, n, 1300));
+      a.count('g7', 0, 317000, 1400, money); a.qa('[data-v=adm] .gch i').forEach(i => i.style.height = i.dataset.h + '%'); llenar('adm');
+      await a.wait(1300);
+      await a.scroll(a.K('ascr'), 190, 800); await a.wait(800);
       await a.tap('sRefs'); await a.show('arefs', 'fade');
-      await a.wait(900); await a.tap('verif');
-      a.cls('rf1', 'hl'); a.set('rf1e', '<span class="ebdg act">Activo</span>'); a.set('rf1v', 'Sí'); a.set('rf1a', '<span class="abtn no">Suspender</span>');
-      a.open('t2'); await a.wait(2200); a.close('t2'); a.cls('rf1', 'hl', false); await a.wait(400);
+      await a.wait(300); await a.tap('verif');
+      a.open('bdm'); a.open('mdv'); await a.wait(900);
+      await a.tap('vok'); a.close('mdv'); a.close('bdm'); a.hide();
+      a.cls('rf1', 'hl'); a.set('rf1e', '<span class="ebdg act">Activo</span>'); a.set('rf1v', 'Sí'); a.set('rf1a', bVer() + ' <span class="abtn no">' + L_BAN + ' Suspender</span> ' + bBaja);
+      a.open('fb1'); await a.wait(1200); a.close('fb1'); a.cls('rf1', 'hl', false);
       await a.tap('sMod'); await a.show('amod', 'fade');
-      await a.wait(900); await a.tap('ocultar');
-      a.cls('md1', 'hl'); a.set('md1e', '<span class="ebdg act">Resuelto</span>'); a.set('md1a', '<span class="abtn nt">Ver</span>');
-      a.open('t3'); await a.wait(2400); a.close('t3'); a.hide();
-      await a.wait(1200);
+      await a.wait(300); await a.tap('ver1');
+      a.open('bdr'); a.open('mdr'); await a.wait(800);
+      await a.type('resp', 'Gracias por avisar. Ya revisamos el refugio.', { speed: 16 });
+      await a.tap('resolver'); a.close('mdr'); a.close('bdr'); a.hide();
+      a.K('md1').style.display = 'none'; a.open('fb2'); await a.wait(1300);
     },
   },
 };
