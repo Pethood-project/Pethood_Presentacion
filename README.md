@@ -18,7 +18,6 @@ UTN Regional Mendoza, Ingeniería en Sistemas de Información. Cátedra: Proyect
 | Archivo                                                                  | Qué es                                                                                    |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
 | [`PetHood · Presentación final.html`](<PetHood · Presentación final.html>) | Presentación de 13 diapositivas en un solo HTML autocontenido (fuentes e imágenes embebidas) |
-| [`guion-participante-5.md`](guion-participante-5.md)                     | Guion de las diapositivas 10, 11 y 12 (funcionalidades extra y panel web)                 |
 
 ## Cómo usarla
 
